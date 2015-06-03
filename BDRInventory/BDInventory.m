@@ -8,6 +8,24 @@
 
 #import "BDInventory.h"
 
+@interface BDInventory()
+
+@property (nonatomic) NSArray * products;
+
+@end
+
 @implementation BDInventory
+
+
+-(instancetype) init{
+    self =[super init];
+    if (self){
+       //load data from data source
+    }else{
+        NSLog(@"%@ Error initializing ", [self class]);
+    }
+    
+    return self;
+}
 
 @end
