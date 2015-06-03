@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>expiration_date</key>
+		<date>2010-02-02T22:00:00Z</date>
+		<key>name</key>
+		<string>pr:Chips-man:Samallot's Farms-cat:Food-exp:ASD3465856</string>
+		<key>price</key>
+		<real>3</real>
+		<key>quantity</key>
+		<integer>10</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2014-03-05T22:00:00Z</date>
+		<key>name</key>
+		<string>man:Pepsico-pr:Venus-cat:Beverages-exp:DIO4346344</string>
+		<key>price</key>
+		<real>7.559999942779541</real>
+		<key>quantity</key>
+		<integer>73</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2006-04-07T22:00:00Z</date>
+		<key>name</key>
+		<string>pr:Dr. Pepper-man:Pepsico-cat:Beverages-exp:QKX0923672</string>
+		<key>price</key>
+		<real>11.340000152587891</real>
+		<key>quantity</key>
+		<integer>238</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2018-05-10T22:00:00Z</date>
+		<key>name</key>
+		<string>man:Marco's-pr:Marco's Laughing Gas</string>
+		<key>price</key>
+		<real>15.119999885559082</real>
+		<key>quantity</key>
+		<integer>502</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2002-06-12T22:00:00Z</date>
+		<key>name</key>
+		<string>pr:Orange Bread-man:Samallot's Farms-cat:Food-exp:ASD3465856</string>
+		<key>price</key>
+		<real>18.899999618530273</real>
+		<key>quantity</key>
+		<integer>867</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2022-07-15T22:00:00Z</date>
+		<key>name</key>
+		<string>man:-pr:Lyon's Excellent Snails-cat:Food-exp:DIO4346344</string>
+		<key>price</key>
+		<real>22.680000305175781</real>
+		<key>quantity</key>
+		<integer>1333</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>1998-08-17T22:00:00Z</date>
+		<key>name</key>
+		<string>pr:Monkey Brains-man:Fabricant Francais-exp:QKX0923672</string>
+		<key>price</key>
+		<real>26.459999084472656</real>
+		<key>quantity</key>
+		<integer>1898</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2026-09-20T22:00:00Z</date>
+		<key>name</key>
+		<string>man:Pistolize-pr:Pistols-cat:Weapons</string>
+		<key>price</key>
+		<real>30.239999771118164</real>
+		<key>quantity</key>
+		<integer>532</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>1994-10-22T22:00:00Z</date>
+		<key>name</key>
+		<string>pr:Solr in Action-man:Manning-cat:Books-exp:ASD3465856</string>
+		<key>price</key>
+		<real>34.020000457763672</real>
+		<key>quantity</key>
+		<integer>1298</integer>
+	</dict>
+	<dict>
+		<key>expiration_date</key>
+		<date>2030-11-25T22:00:00Z</date>
+		<key>name</key>
+		<string>man:Nike-pr:Adidas-cat:Cloth-exp:DIO4346344</string>
+		<key>price</key>
+		<real>37</real>
+		<key>quantity</key>
+		<integer>132</integer>
+	</dict>
+</array>
+</plist>

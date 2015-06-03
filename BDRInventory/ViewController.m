@@ -9,10 +9,16 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UISegmentedControl *grouping;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *expireFilters;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
 
 @end
 
 @implementation ViewController
+- (IBAction)apply:(id)sender {
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

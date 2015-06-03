@@ -14,6 +14,9 @@
 		072200EB1B1F04D800FCCB28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 072200EA1B1F04D800FCCB28 /* Images.xcassets */; };
 		072200EE1B1F04D800FCCB28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072200EC1B1F04D800FCCB28 /* LaunchScreen.xib */; };
 		072200FA1B1F04D900FCCB28 /* BDRInventoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 072200F91B1F04D900FCCB28 /* BDRInventoryTests.m */; };
+		072201041B1F053600FCCB28 /* inventory_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 072201031B1F053600FCCB28 /* inventory_data.plist */; };
+		072201081B1F059400FCCB28 /* BDIProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 072201071B1F059400FCCB28 /* BDIProduct.m */; };
+		0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010A1B1F071500FCCB28 /* BDInventory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		072200F31B1F04D900FCCB28 /* BDRInventoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDRInventoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		072200F81B1F04D900FCCB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		072200F91B1F04D900FCCB28 /* BDRInventoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDRInventoryTests.m; sourceTree = "<group>"; };
+		072201031B1F053600FCCB28 /* inventory_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = inventory_data.plist; sourceTree = "<group>"; };
+		072201061B1F059400FCCB28 /* BDIProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIProduct.h; sourceTree = "<group>"; };
+		072201071B1F059400FCCB28 /* BDIProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIProduct.m; sourceTree = "<group>"; };
+		072201091B1F071500FCCB28 /* BDInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDInventory.h; sourceTree = "<group>"; };
+		0722010A1B1F071500FCCB28 /* BDInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		072200DC1B1F04D800FCCB28 /* BDRInventory */ = {
 			isa = PBXGroup;
 			children = (
+				072201051B1F055100FCCB28 /* Model */,
 				072200E11B1F04D800FCCB28 /* AppDelegate.h */,
 				072200E21B1F04D800FCCB28 /* AppDelegate.m */,
 				072200E41B1F04D800FCCB28 /* ViewController.h */,
@@ -96,6 +105,7 @@
 		072200DD1B1F04D800FCCB28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				072201031B1F053600FCCB28 /* inventory_data.plist */,
 				072200DE1B1F04D800FCCB28 /* Info.plist */,
 				072200DF1B1F04D800FCCB28 /* main.m */,
 			);
@@ -117,6 +127,17 @@
 				072200F81B1F04D900FCCB28 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		072201051B1F055100FCCB28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				072201061B1F059400FCCB28 /* BDIProduct.h */,
+				072201071B1F059400FCCB28 /* BDIProduct.m */,
+				072201091B1F071500FCCB28 /* BDInventory.h */,
+				0722010A1B1F071500FCCB28 /* BDInventory.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				072200E91B1F04D800FCCB28 /* Main.storyboard in Resources */,
+				072201041B1F053600FCCB28 /* inventory_data.plist in Resources */,
 				072200EE1B1F04D800FCCB28 /* LaunchScreen.xib in Resources */,
 				072200EB1B1F04D800FCCB28 /* Images.xcassets in Resources */,
 			);
@@ -219,9 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */,
 				072200E61B1F04D800FCCB28 /* ViewController.m in Sources */,
 				072200E31B1F04D800FCCB28 /* AppDelegate.m in Sources */,
 				072200E01B1F04D800FCCB28 /* main.m in Sources */,
+				072201081B1F059400FCCB28 /* BDIProduct.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
