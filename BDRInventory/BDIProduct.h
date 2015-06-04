@@ -18,4 +18,6 @@
 @property (nonatomic) NSNumber * price;
 @property (nonatomic) NSUInteger quantity;
 
+-(instancetype) initWithDictionary:(NSDictionary *) productAttributes;
+
 @end

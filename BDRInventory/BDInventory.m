@@ -44,8 +44,21 @@
         
         if ([fileManager fileExistsAtPath: path])
         {
+            
+            
             NSLog(@"File found [%@]",path);
             data = [NSArray  arrayWithContentsOfFile: path];  // if file exist at path initialise your dictionary with its data
+            if (data) {
+                NSMutableArray * parsedProducts=[[NSMutableArray alloc] init];
+                for (NSDictionary * productDictionary in data ) {
+                    BDIProduct * product=[[BDIProduct alloc] initWithDictionary: productDictionary];
+                    [parsedProducts addObject:product];
+                    NSLog(@"=====================");
+
+                }
+                _products=[parsedProducts copy];
+                NSLog(@"Parsed [%lu] products.",[_products count]);
+            }
             
         }
         else
