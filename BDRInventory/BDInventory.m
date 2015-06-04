@@ -58,7 +58,7 @@
 - (NSPredicate *)groupingBy:(NSString *)group  withValue:(NSString *)value {
     NSPredicate *result = [NSPredicate
                            predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-                               BOOL result;
+                               BOOL result=true;
                                
                                
                                

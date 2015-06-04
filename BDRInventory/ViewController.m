@@ -13,13 +13,32 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *grouping;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *expireFilters;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
+@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endDatelabel;
 
 
 @end
 
 @implementation ViewController
+- (IBAction)expirySelection:(id)sender {
+    if ([[self expireFilters] selectedSegmentIndex]==2) {
+        [[self startDatePicker] setHidden:false];
+        [[self endDatePicker] setHidden:false];
+        [[self startDateLabel] setHidden:false];
+        [[self endDatelabel] setHidden:false];
+
+    }else{
+        [[self startDatePicker] setHidden:true];
+        [[self endDatePicker] setHidden:true];
+        [[self startDateLabel] setHidden:true];
+        [[self endDatelabel] setHidden:true];
+    }
+}
 
 - (IBAction)apply:(id)sender {
+    
 }
 
 - (void)viewDidLoad {
