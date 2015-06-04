@@ -21,14 +21,65 @@
 
 @implementation BDInventory
 
+-(NSPredicate *) expired{
+    return [self expiresInRangeStart:[NSDate distantPast] RangeEnd:[NSDate date] reversed:false];
+
+}
+
+-(NSPredicate *) nonExpired{
+    return [self expiresInRangeStart:[NSDate distantPast] RangeEnd:[NSDate date] reversed:false];
+   
+}
+
+
+
+- (NSPredicate *)expiresInRangeStart:(NSDate *)expireRangeStartDate RangeEnd:(NSDate *)expireRangeEndDate reversed:(BOOL)reversedFlag {
+    NSPredicate *result = [NSPredicate
+                           predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                               BOOL inRange=false;
+                               BOOL afterOrEqualFirstDate=false;
+                               BOOL beforeOrEqualEndDate=false;
+                               NSDate * productExpireDate=[(BDIProduct *)evaluatedObject expireDate];
+                               NSComparisonResult result = [productExpireDate compare: expireRangeStartDate];
+                               afterOrEqualFirstDate=((result == NSOrderedDescending) || (result == NSOrderedSame) );
+                               if (!afterOrEqualFirstDate){
+                                   return (reversedFlag? true: false);
+                               }
+                               result = [productExpireDate compare: expireRangeEndDate];
+                               beforeOrEqualEndDate=((result == NSOrderedAscending) || (result == NSOrderedSame) );
+                               
+                               inRange=(afterOrEqualFirstDate && beforeOrEqualEndDate);
+                               return ( reversedFlag? !inRange : inRange ) ;
+                           }];
+    
+    return result;
+}
+
+- (NSPredicate *)groupingBy:(NSString *)group  withValue:(NSString *)value {
+    NSPredicate *result = [NSPredicate
+                           predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                               BOOL result;
+                               
+                               
+                               
+                               
+                               return result;
+                           }];
+    
+    return result;
+}
+
 -(NSArray *) getProductsByGrouping:(NSString *)grouping expireFilter:(NSString *) expireFilter{
     return [self getProductsByGrouping:grouping expireFilter:expireFilter startDate:nil endDate:nil];
 }
 
 
 -(NSArray *) getProductsByGrouping:(NSString *)grouping expireFilter:(NSString *) expireFilter startDate:(NSDate *) startDate endDate: (NSDate *) endDate{
-
-    return nil;
+    NSMutableArray * result=[[NSMutableArray alloc] init];
+    
+    
+    
+    return [result copy];
 }
 
 
