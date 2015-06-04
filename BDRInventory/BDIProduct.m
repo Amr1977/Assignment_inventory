@@ -11,13 +11,27 @@
 @implementation BDIProduct
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"name:[%@], manufacturer:[%@], category: "
-                                    @"[%@], exporterID: [%@], expireDate: "
-                                    @"[%@], price:[%@], Qty:[%lu] ",
-                                    [self name], [self manufacturer],
-                                    [self category], [self exporterID],
-                                    [self expireDate], [self price],
-                                    (unsigned long)[self quantity]];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd/MMM/yyyy"];
+    
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+   //[numberFormatter setNumberStyle:NSnu];
+    [numberFormatter setGroupingSeparator: [[NSLocale currentLocale] objectForKey:NSLocaleGroupingSeparator]];
+     [numberFormatter setUsesGroupingSeparator:YES];
+    
+  return [NSString stringWithFormat:@"\n[%@] in [%@] \n " //[self name],[self category],
+          @"[%@] %@ \n" //([self isExpired]?@"Expired":@"Not-Expired"),[self expireDate],
+          @"[%@] items. [%@] \n" //(unsigned long)[self quantity],[self price],
+          @"[%@]\n", //[self manufacturer]
+          [self name],[self category],
+          ([self isExpired]?@"Expired":@"Not-Expired"),[format stringFromDate:[self expireDate]],
+          [numberFormatter stringFromNumber:[NSNumber numberWithInteger:[self quantity]]],[currencyFormatter stringFromNumber: [self price]],
+          [self manufacturer]
+          
+          ];
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)productAttributes {
@@ -67,6 +81,11 @@
     }
   }
   return self;
+}
+-(BOOL)isExpired{
+    NSComparisonResult result=[[self expireDate] compare:[NSDate date]];
+    
+    return (result!=NSOrderedDescending);
 }
 
 @end

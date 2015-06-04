@@ -10,5 +10,13 @@
 #import "BDIProduct.h"
 
 @interface BDInventory : NSObject
+- (NSDictionary *)getProductsByGrouping:(NSString *)grouping
+                           expireFilter:(NSString *)expireFilter
+                              startDate:(NSDate *)startDate
+                                endDate:(NSDate *)endDate;
+
+- (NSArray *)getProductsByExpireFilter:(NSString *)expireFilter
+                             startDate:(NSDate *)startDate
+                               endDate:(NSDate *)endDate;
 
 @end

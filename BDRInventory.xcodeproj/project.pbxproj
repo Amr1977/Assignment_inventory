@@ -17,6 +17,7 @@
 		072201041B1F053600FCCB28 /* inventory_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 072201031B1F053600FCCB28 /* inventory_data.plist */; };
 		072201081B1F059400FCCB28 /* BDIProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 072201071B1F059400FCCB28 /* BDIProduct.m */; };
 		0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010A1B1F071500FCCB28 /* BDInventory.m */; };
+		0722010E1B20D15A00FCCB28 /* BDInventoryFilterResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010D1B20D15A00FCCB28 /* BDInventoryFilterResults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		072201071B1F059400FCCB28 /* BDIProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIProduct.m; sourceTree = "<group>"; };
 		072201091B1F071500FCCB28 /* BDInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDInventory.h; sourceTree = "<group>"; };
 		0722010A1B1F071500FCCB28 /* BDInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventory.m; sourceTree = "<group>"; };
+		0722010C1B20D15A00FCCB28 /* BDInventoryFilterResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDInventoryFilterResults.h; sourceTree = "<group>"; };
+		0722010D1B20D15A00FCCB28 /* BDInventoryFilterResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventoryFilterResults.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				072200EA1B1F04D800FCCB28 /* Images.xcassets */,
 				072200EC1B1F04D800FCCB28 /* LaunchScreen.xib */,
 				072200DD1B1F04D800FCCB28 /* Supporting Files */,
+				0722010C1B20D15A00FCCB28 /* BDInventoryFilterResults.h */,
+				0722010D1B20D15A00FCCB28 /* BDInventoryFilterResults.m */,
 			);
 			path = BDRInventory;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */,
 				072200E61B1F04D800FCCB28 /* ViewController.m in Sources */,
 				072200E31B1F04D800FCCB28 /* AppDelegate.m in Sources */,
+				0722010E1B20D15A00FCCB28 /* BDInventoryFilterResults.m in Sources */,
 				072200E01B1F04D800FCCB28 /* main.m in Sources */,
 				072201081B1F059400FCCB28 /* BDIProduct.m in Sources */,
 			);

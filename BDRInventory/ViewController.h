@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BDInventory.h"
+#import "BDInventoryFilterResults.h"
 
 @interface ViewController : UIViewController
 

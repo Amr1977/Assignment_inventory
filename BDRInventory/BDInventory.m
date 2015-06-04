@@ -12,15 +12,6 @@
 
 @property(nonatomic) NSArray *products;
 
-//-(NSArray *) getProductsByGrouping:(NSString *)grouping expireFilter:(NSString
-//*) expireFilter;
-- (NSDictionary *)getProductsByGrouping:(NSString *)grouping
-                           expireFilter:(NSString *)expireFilter
-                              startDate:(NSDate *)startDate
-                                endDate:(NSDate *)endDate;
-- (NSArray *)getProductsByExpireFilter:(NSString *)expireFilter
-                             startDate:(NSDate *)startDate
-                               endDate:(NSDate *)endDate;
 
 @end
 
@@ -77,7 +68,7 @@ NSMutableSet *exporters;
 
 + (NSArray *)allowedGrouping {
   return [[NSArray alloc]
-      initWithObjects:@"manufacturer", @"category", @"exporter", nil];
+      initWithObjects:@"manufacturer", @"category", @"exporter",@"no_group", nil];
 }
 
 + (NSArray *)allowedExpireFiltering {
@@ -134,22 +125,27 @@ NSMutableSet *exporters;
               return [
                   [[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
                   isEqualToString:[value lowercaseString]];
-              break;
+              
 
             case 1:  // category
               return [[[(BDIProduct *)evaluatedObject category] lowercaseString]
                   isEqualToString:[value lowercaseString]];
-              break;
+             
 
             case 2:
               return
                   [[[(BDIProduct *)evaluatedObject exporterID] lowercaseString]
                       isEqualToString:[value lowercaseString]];
-              break;
-
+              
+                  
+              case 3: //no_group
+                  return true;
+                  
+                  
             default:
               NSLog(@"unknown grouping by: [%@]", group);
-              break;
+                  
+              
           }
         }
         return result;
@@ -190,6 +186,11 @@ NSMutableSet *exporters;
       case 2:  // exporter
         groupingSet = exporters;
         break;
+            
+        case 3: //no group
+            groupingSet=nil;
+            [result setValue:productsArray forKey: @"No Group"];
+            
     }
 
     for (NSString *groupingKey in groupingSet) {
