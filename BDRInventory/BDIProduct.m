@@ -10,7 +10,17 @@
 
 @implementation BDIProduct
 
-
+-(NSString *) description{
+    return [NSString stringWithFormat:@"name:[%@], manufacturer:[%@], category: [%@], exporterID: [%@], expireDate: [%@], price:[%@], Qty:[%lu] ",
+            [self name],
+            [self manufacturer],
+            [self category],
+            [self exporterID],
+            [self expireDate],
+            [self price],
+            (unsigned long)[self quantity]
+            ];
+}
 
 -(instancetype) initWithDictionary:(NSDictionary *) productAttributes{
     self = [super init];
