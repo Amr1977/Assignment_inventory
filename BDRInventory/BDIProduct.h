@@ -10,14 +10,14 @@
 
 @interface BDIProduct : NSObject
 
-@property (nonatomic) NSString * name;
-@property (nonatomic) NSString * manufacturer;
-@property (nonatomic) NSString * category;
-@property (nonatomic) NSString * exporterID;
-@property (nonatomic) NSDate * expireDate;
-@property (nonatomic) NSNumber * price;
-@property (nonatomic) NSUInteger quantity;
+@property(nonatomic) NSString *name;
+@property(nonatomic) NSString *manufacturer;
+@property(nonatomic) NSString *category;
+@property(nonatomic) NSString *exporterID;
+@property(nonatomic) NSDate *expireDate;
+@property(nonatomic) NSNumber *price;
+@property(nonatomic) NSUInteger quantity;
 
--(instancetype) initWithDictionary:(NSDictionary *) productAttributes;
+- (instancetype)initWithDictionary:(NSDictionary *)productAttributes;
 
 @end

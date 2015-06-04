@@ -11,8 +11,4 @@
 
 @interface BDInventory : NSObject
 
-
-
-
-
 @end
