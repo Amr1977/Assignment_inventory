@@ -12,7 +12,6 @@
 
 @property(nonatomic) NSArray *products;
 
-
 @end
 
 @implementation BDInventory
@@ -67,8 +66,8 @@ NSMutableSet *exporters;
 }
 
 + (NSArray *)allowedGrouping {
-  return [[NSArray alloc]
-      initWithObjects:@"manufacturer", @"category", @"exporter",@"no_group", nil];
+  return [[NSArray alloc] initWithObjects:@"manufacturer", @"category",
+                                          @"exporter", @"no_group", nil];
 }
 
 + (NSArray *)allowedExpireFiltering {
@@ -125,27 +124,21 @@ NSMutableSet *exporters;
               return [
                   [[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
                   isEqualToString:[value lowercaseString]];
-              
 
             case 1:  // category
               return [[[(BDIProduct *)evaluatedObject category] lowercaseString]
                   isEqualToString:[value lowercaseString]];
-             
 
             case 2:
               return
                   [[[(BDIProduct *)evaluatedObject exporterID] lowercaseString]
                       isEqualToString:[value lowercaseString]];
-              
-                  
-              case 3: //no_group
-                  return true;
-                  
-                  
+
+            case 3:  // no_group
+              return true;
+
             default:
               NSLog(@"unknown grouping by: [%@]", group);
-                  
-              
           }
         }
         return result;
@@ -186,11 +179,10 @@ NSMutableSet *exporters;
       case 2:  // exporter
         groupingSet = exporters;
         break;
-            
-        case 3: //no group
-            groupingSet=nil;
-            [result setValue:productsArray forKey: @"No Group"];
-            
+
+      case 3:  // no group
+        groupingSet = nil;
+        [result setValue:productsArray forKey:@"No Group"];
     }
 
     for (NSString *groupingKey in groupingSet) {

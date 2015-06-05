@@ -10,7 +10,7 @@
 
 @interface ViewController ()
 @property(nonatomic) BDInventory *inventoryModel;
-@property (nonatomic) NSDictionary * lastResult;
+@property(nonatomic) NSDictionary *lastResult;
 @property(weak, nonatomic) IBOutlet UISegmentedControl *grouping;
 @property(weak, nonatomic) IBOutlet UISegmentedControl *expireFilters;
 @property(weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
@@ -18,11 +18,7 @@
 @property(weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property(weak, nonatomic) IBOutlet UILabel *endDatelabel;
 
-
-
-@property (nonatomic) NSString * groupingMethod;
-
-
+@property(nonatomic) NSString *groupingMethod;
 
 @end
 
@@ -30,8 +26,8 @@
 
 static NSInteger groupingIndex;
 static NSInteger expireIndex;
-static NSDate * startDate;
-static NSDate * endDate;
+static NSDate *startDate;
+static NSDate *endDate;
 
 - (IBAction)expirySelection:(id)sender {
   if ([[self expireFilters] selectedSegmentIndex] == 2) {
@@ -49,52 +45,49 @@ static NSDate * endDate;
 }
 
 - (IBAction)apply:(id)sender {
-    NSInteger groupingIndex=[[self grouping] selectedSegmentIndex];
-    NSString * groupingString;
-    if (groupingIndex==0) {
-        groupingString=@"manufacturer";
-        [self setGroupingMethod:@"Manufacturer"];
-    }else if(groupingIndex==1){
-        groupingString=@"category";
-        [self setGroupingMethod:@"Category"];
-    }else if(groupingIndex==2){
-        groupingString=@"exporter";
-        [self setGroupingMethod:@"Exporter"];
-        
-    } else{
-        groupingString=@"no_group";
-        [self setGroupingMethod:@""];
-    }
-    
-        
-    NSInteger selectedFiltering=[[self expireFilters] selectedSegmentIndex];
-    NSString *filteringString;
-    NSDate * startDAte;
-    NSDate * endDAte;
-    switch (selectedFiltering) {
-        case 0:
-            filteringString=@"expired";
-            break;
-            case 1:
-            filteringString=@"non_expired";
-            break;
-        case 2:
-            filteringString=@"in_range";
-            startDAte=[[self startDatePicker] date];
-            endDAte=[[self endDatePicker] date];
-            break;
-    }
-    
-    NSLog(@"grouping on: [%@] , filtering: [%@] , startDate: [%@], endDate: [%@]", groupingString, filteringString, startDAte, endDAte);
-    
-    [self setLastResult:[
-                         [self inventoryModel]
-                         getProductsByGrouping : groupingString
-                                  expireFilter : filteringString
-                                     startDate : startDAte
-                                       endDate : endDAte]
-     ];
-    
+  NSInteger groupingIndex = [[self grouping] selectedSegmentIndex];
+  NSString *groupingString;
+  if (groupingIndex == 0) {
+    groupingString = @"manufacturer";
+    [self setGroupingMethod:@"Manufacturer"];
+  } else if (groupingIndex == 1) {
+    groupingString = @"category";
+    [self setGroupingMethod:@"Category"];
+  } else if (groupingIndex == 2) {
+    groupingString = @"exporter";
+    [self setGroupingMethod:@"Exporter"];
+
+  } else {
+    groupingString = @"no_group";
+    [self setGroupingMethod:@""];
+  }
+
+  NSInteger selectedFiltering = [[self expireFilters] selectedSegmentIndex];
+  NSString *filteringString;
+  NSDate *startDAte;
+  NSDate *endDAte;
+  switch (selectedFiltering) {
+    case 0:
+      filteringString = @"expired";
+      break;
+    case 1:
+      filteringString = @"non_expired";
+      break;
+    case 2:
+      filteringString = @"in_range";
+      startDAte = [[self startDatePicker] date];
+      endDAte = [[self endDatePicker] date];
+      break;
+  }
+
+  NSLog(@"grouping on: [%@] , filtering: [%@] , startDate: [%@], endDate: [%@]",
+        groupingString, filteringString, startDAte, endDAte);
+
+  [self
+      setLastResult:[[self inventoryModel] getProductsByGrouping:groupingString
+                                                    expireFilter:filteringString
+                                                       startDate:startDAte
+                                                         endDate:endDAte]];
 }
 
 - (void)viewDidLoad {
@@ -103,10 +96,10 @@ static NSDate * endDate;
     NSLog(@"Inventory model is alive.");
   } else {
     NSLog(@"Error Initializing inventory model.");
-      [[self grouping] setSelectedSegmentIndex:groupingIndex];
-      [[self expireFilters] setSelectedSegmentIndex:expireIndex];
-      [[self startDatePicker] setDate:startDate];
-      [[self endDatePicker] setDate:endDate];
+    [[self grouping] setSelectedSegmentIndex:groupingIndex];
+    [[self expireFilters] setSelectedSegmentIndex:expireIndex];
+    [[self startDatePicker] setDate:startDate];
+    [[self endDatePicker] setDate:endDate];
   }
   // Do any additional setup after loading the view, typically from a nib.
 }
@@ -114,7 +107,7 @@ static NSDate * endDate;
 - (BDInventory *)inventoryModel {
   if (!_inventoryModel) {
     _inventoryModel = [BDInventory new];
-      NSLog(@"Created a new Inventory model.");
+    NSLog(@"Created a new Inventory model.");
   }
   return _inventoryModel;
 }
@@ -124,22 +117,22 @@ static NSDate * endDate;
   // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Navigation
 
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
-     [(BDInventoryFilterResults *)[segue destinationViewController] setResults:[self lastResult]];
-     [(BDInventoryFilterResults *)[segue destinationViewController] setGroupingString:[self groupingMethod]];
-     NSLog(@"ViewController: sent [%lu] group.",[[self lastResult] count]);
-     groupingIndex=[[self grouping] selectedSegmentIndex];
-     expireIndex=[[self expireFilters] selectedSegmentIndex];
-     startDate=[[self startDatePicker] date];
-     endDate=[[self endDatePicker] date];
-
- }
-
+// In a storyboard-based application, you will often want to do a little
+// preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  // Get the new view controller using [segue destinationViewController].
+  // Pass the selected object to the new view controller.
+  [(BDInventoryFilterResults *)[segue destinationViewController]
+      setResults:[self lastResult]];
+  [(BDInventoryFilterResults *)[segue destinationViewController]
+      setGroupingString:[self groupingMethod]];
+  NSLog(@"ViewController: sent [%lu] group.", [[self lastResult] count]);
+  groupingIndex = [[self grouping] selectedSegmentIndex];
+  expireIndex = [[self expireFilters] selectedSegmentIndex];
+  startDate = [[self startDatePicker] date];
+  endDate = [[self endDatePicker] date];
+}
 
 @end

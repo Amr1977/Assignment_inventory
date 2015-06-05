@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BDIProduct.h"
 
-
 @interface BDInventoryFilterResults : UIViewController
 
-@property (nonatomic) NSDictionary * results;
-@property (nonatomic) NSString * groupingString;
-
+@property(nonatomic) NSDictionary* results;
+@property(nonatomic) NSString* groupingString;
 
 @end

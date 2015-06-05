@@ -19,6 +19,6 @@
 @property(nonatomic) NSUInteger quantity;
 
 - (instancetype)initWithDictionary:(NSDictionary *)productAttributes;
--(BOOL)isExpired;
+- (BOOL)isExpired;
 
 @end
