@@ -24,7 +24,7 @@ NSMutableSet *exporters;
                            expireFilter:(NSString *)expireFilter
                               startDate:(NSDate *)startDate
                                 endDate:(NSDate *)endDate {
-  // TODO: the main method, performs filtering on expire filter then the result
+  // The main method, performs filtering on expire filter then the result
   // is regrouped by grouping filter
   NSArray *expireFilteredProducts = [self getProductsByExpireFilter:expireFilter
                                                           startDate:startDate
@@ -37,7 +37,7 @@ NSMutableSet *exporters;
 - (NSArray *)getProductsByExpireFilter:(NSString *)expireFilter
                              startDate:(NSDate *)startDate
                                endDate:(NSDate *)endDate {
-  NSArray *result;
+  NSArray *result = [self products];
   NSInteger index =
       [[BDInventory allowedExpireFiltering] indexOfObject:expireFilter];
   if (index != NSNotFound) {
@@ -51,9 +51,7 @@ NSMutableSet *exporters;
         break;
 
       case 2:  // in range
-        expireFilter = [self expiresInRangeStart:startDate
-                                        RangeEnd:endDate
-                                        reversed:false];
+        expireFilter = [self expiresInRangeStart:startDate RangeEnd:endDate];
         break;
       default:
         break;
@@ -76,9 +74,7 @@ NSMutableSet *exporters;
 }
 
 - (NSPredicate *)expired {
-  return [self expiresInRangeStart:[NSDate distantPast]
-                          RangeEnd:[NSDate date]
-                          reversed:false];
+  return [self expiresInRangeStart:[NSDate distantPast] RangeEnd:[NSDate date]];
 }
 
 - (NSPredicate *)nonExpired {
@@ -87,8 +83,7 @@ NSMutableSet *exporters;
 }
 
 - (NSPredicate *)expiresInRangeStart:(NSDate *)expireRangeStartDate
-                            RangeEnd:(NSDate *)expireRangeEndDate
-                            reversed:(BOOL)reversedFlag {
+                            RangeEnd:(NSDate *)expireRangeEndDate {
   NSPredicate *result = [NSPredicate
       predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         BOOL inRange = false;
@@ -100,14 +95,14 @@ NSMutableSet *exporters;
         afterOrEqualFirstDate =
             ((result == NSOrderedDescending) || (result == NSOrderedSame));
         if (!afterOrEqualFirstDate) {
-          return (reversedFlag ? true : false);
+          return (false);
         }
         result = [productExpireDate compare:expireRangeEndDate];
         beforeOrEqualEndDate =
             ((result == NSOrderedAscending) || (result == NSOrderedSame));
 
         inRange = (afterOrEqualFirstDate && beforeOrEqualEndDate);
-        return (reversedFlag ? !inRange : inRange);
+        return (inRange);
       }];
 
   return result;
@@ -252,7 +247,6 @@ NSMutableSet *exporters;
               (unsigned long)[exporters count],
               (unsigned long)[categories count]);
       }
-
     } else {
       NSLog(@"File not found [%@]", path);
     }

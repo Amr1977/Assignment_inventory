@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  NSLog(@"BDInventoryFilterResults: REcieved [%lu] group.",
+  NSLog(@"BDInventoryFilterResults: Recieved [%lu] group.",
         [[self results] count]);
 
   [self formatOutput];
@@ -35,7 +35,7 @@
   NSMutableString *resultString = [NSMutableString new];
   for (NSString *key in [self results]) {
     if ([self.results[key] count]) {  // only if this key has associated data
-      [resultString appendFormat:@"%@ %@: \n", [self groupingString], key];
+      [resultString appendFormat:@"%@ [%@]: \n", [self groupingString], key];
       for (BDIProduct *product in self.results[key]) {
         [resultString appendFormat:@"%@ \n", product];
       }

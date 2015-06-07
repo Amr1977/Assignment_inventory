@@ -15,8 +15,4 @@
                               startDate:(NSDate *)startDate
                                 endDate:(NSDate *)endDate;
 
-- (NSArray *)getProductsByExpireFilter:(NSString *)expireFilter
-                             startDate:(NSDate *)startDate
-                               endDate:(NSDate *)endDate;
-
 @end

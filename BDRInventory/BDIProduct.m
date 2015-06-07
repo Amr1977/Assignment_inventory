@@ -56,24 +56,30 @@
             // NSLog(@"Name substring: [%@]",substring);
             NSArray *subNameComponent =
                 [substring componentsSeparatedByString:@":"];
-            if ([subNameComponent count] == 2) {
-              if ([subNameComponent[0] isEqualToString:@"pr"]) {  // product
-                                                                  // name
-                _name = subNameComponent[1];
-                NSLog(@"Product Name: %@", _name);
-              } else if ([subNameComponent[0]
-                             isEqualToString:@"man"]) {  // product name
-                _manufacturer = subNameComponent[1];
-                NSLog(@"Manufacturer: %@", _manufacturer);
-              } else if ([subNameComponent[0]
-                             isEqualToString:@"cat"]) {  // product name
-                _category = subNameComponent[1];
-                NSLog(@"Category: %@", _category);
-              } else if ([subNameComponent[0]
-                             isEqualToString:@"exp"]) {  // product name
-                _exporterID = subNameComponent[1];
-                NSLog(@"Exported ID: %@", _exporterID);
-              }
+            // TODO: need to handle empty valued entries
+
+            if ([subNameComponent count] == 1) {
+              subNameComponent = [NSArray
+                  arrayWithObjects:subNameComponent[0], @"<UNDEFINED>", nil];
+              NSLog(@"subNameComponent: %@", subNameComponent);
+            }
+            NSLog(@"subNameComponent: %@", subNameComponent);
+            if ([subNameComponent[0] isEqualToString:@"pr"]) {
+              // product name
+              _name = subNameComponent[1];
+              NSLog(@"Product Name: %@", _name);
+            } else if ([subNameComponent[0]
+                           isEqualToString:@"man"]) {  // product naufacturer
+              _manufacturer = subNameComponent[1];
+              NSLog(@"Manufacturer: %@", _manufacturer);
+            } else if ([subNameComponent[0]
+                           isEqualToString:@"cat"]) {  // product category
+              _category = subNameComponent[1];
+              NSLog(@"Category: %@", _category);
+            } else if ([subNameComponent[0]
+                           isEqualToString:@"exp"]) {  // product exporter
+              _exporterID = subNameComponent[1];
+              NSLog(@"Exported ID: %@", _exporterID);
             }
           }
 
@@ -83,7 +89,6 @@
         } else if ([key isEqualToString:@"quantity"]) {
           _quantity = [productAttributes[key] integerValue];
         }
-        // parse dictionary keys
       }
     }
   }
