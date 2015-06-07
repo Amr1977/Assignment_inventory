@@ -28,7 +28,7 @@
       stringWithFormat:
           @"\n[%@] in [%@] \n "  //[self name],[self category],
           @"[%@] %@ \n"  //([self isExpired]?@"Expired":@"Not-Expired"),[self
-                         //expireDate],
+          // expireDate],
           @"[%@] items. [%@] \n"  //(unsigned long)[self quantity],[self price],
           @"[%@]\n",              //[self manufacturer]
           [self name],

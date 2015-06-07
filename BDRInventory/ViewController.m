@@ -24,11 +24,6 @@
 
 @implementation ViewController
 
-static NSInteger groupingIndex;
-static NSInteger expireIndex;
-static NSDate *startDate;
-static NSDate *endDate;
-
 - (IBAction)expirySelection:(id)sender {
   if ([[self expireFilters] selectedSegmentIndex] == 2) {
     [[self startDatePicker] setHidden:false];
@@ -44,7 +39,7 @@ static NSDate *endDate;
   }
 }
 
-- (IBAction)apply:(id)sender {
+- (void)applyFilters {
   NSInteger groupingIndex = [[self grouping] selectedSegmentIndex];
   NSString *groupingString;
   if (groupingIndex == 0) {
@@ -96,10 +91,6 @@ static NSDate *endDate;
     NSLog(@"Inventory model is alive.");
   } else {
     NSLog(@"Error Initializing inventory model.");
-    [[self grouping] setSelectedSegmentIndex:groupingIndex];
-    [[self expireFilters] setSelectedSegmentIndex:expireIndex];
-    [[self startDatePicker] setDate:startDate];
-    [[self endDatePicker] setDate:endDate];
   }
   // Do any additional setup after loading the view, typically from a nib.
 }
@@ -124,15 +115,13 @@ static NSDate *endDate;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view controller.
+  [self applyFilters];
+
   [(BDInventoryFilterResults *)[segue destinationViewController]
       setResults:[self lastResult]];
   [(BDInventoryFilterResults *)[segue destinationViewController]
       setGroupingString:[self groupingMethod]];
   NSLog(@"ViewController: sent [%lu] group.", [[self lastResult] count]);
-  groupingIndex = [[self grouping] selectedSegmentIndex];
-  expireIndex = [[self expireFilters] selectedSegmentIndex];
-  startDate = [[self startDatePicker] date];
-  endDate = [[self endDatePicker] date];
 }
 
 @end
