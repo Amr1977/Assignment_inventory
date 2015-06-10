@@ -63,12 +63,12 @@ NSMutableSet *exporters;
   return result;
 }
 
-+ (NSArray *)allowedGrouping {
++ (NSArray *)allowedGrouping {//TODO: better to use enumeration
   return [[NSArray alloc] initWithObjects:@"manufacturer", @"category",
                                           @"exporter", @"no_group", nil];
 }
 
-+ (NSArray *)allowedExpireFiltering {
++ (NSArray *)allowedExpireFiltering {//TODO: better to use enumeration
   return [[NSArray alloc]
       initWithObjects:@"expired", @"non_expired", @"in_range", nil];
 }
@@ -115,7 +115,7 @@ NSMutableSet *exporters;
         NSInteger index = [[BDInventory allowedGrouping] indexOfObject:group];
         if (index != NSNotFound) {
           switch (index) {
-            case 0:  // manufacturer
+            case 0:  // manufacturer //TODO: better to define constants or enums
               return [
                   [[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
                   isEqualToString:[value lowercaseString]];
