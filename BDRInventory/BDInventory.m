@@ -11,14 +11,15 @@
 @interface BDInventory ()
 
 @property(nonatomic) NSArray *products;
+@property(nonatomic)  NSMutableSet *manufacturers;
+@property(nonatomic)  NSMutableSet *categories;
+@property(nonatomic)  NSMutableSet *exporters;
 
 @end
 
 @implementation BDInventory
 
-NSMutableSet *manufacturers;
-NSMutableSet *categories;
-NSMutableSet *exporters;
+
 
 - (NSDictionary *)getProductsByGrouping:(NSString *)grouping
                            expireFilter:(NSString *)expireFilter
@@ -164,15 +165,15 @@ NSMutableSet *exporters;
     NSString *groupingString = [BDInventory allowedGrouping][index];
     switch (index) {
       case 0:  // manufacturer
-        groupingSet = manufacturers;
+        groupingSet = self.manufacturers;
         break;
 
       case 1:  // category
-        groupingSet = categories;
+        groupingSet = self.categories;
         break;
 
       case 2:  // exporter
-        groupingSet = exporters;
+        groupingSet = self.exporters;
         break;
 
       case 3:  // no group
@@ -214,9 +215,9 @@ NSMutableSet *exporters;
                                                       // dictionary with its
                                                       // data
       if (data) {
-        manufacturers = [[NSMutableSet alloc] init];
-        categories = [[NSMutableSet alloc] init];
-        exporters = [[NSMutableSet alloc] init];
+        self.manufacturers = [[NSMutableSet alloc] init];
+        self.categories = [[NSMutableSet alloc] init];
+        self.exporters = [[NSMutableSet alloc] init];
         NSMutableArray *parsedProducts = [[NSMutableArray alloc] init];
         for (NSDictionary *productDictionary in data) {
           BDIProduct *product =
@@ -225,27 +226,27 @@ NSMutableSet *exporters;
           NSLog(@"=====================");
           // TODO: fill the global sets !
           if ([product manufacturer]) {
-            [manufacturers addObject:[product manufacturer]];
+            [self.manufacturers addObject:[product manufacturer]];
             NSLog(@"number of manufacturers so far: %lu",
-                  (unsigned long)[manufacturers count]);
+                  (unsigned long)[self.manufacturers count]);
           }
           if ([product exporterID]) {
-            [exporters addObject:[product exporterID]];
+            [self.exporters addObject:[product exporterID]];
             NSLog(@"number of exporters so far: %lu",
-                  (unsigned long)[exporters count]);
+                  (unsigned long)[self.exporters count]);
           }
           if ([product category]) {
-            [categories addObject:[product category]];
+            [self.categories addObject:[product category]];
             NSLog(@"number of categories so far: %lu",
-                  (unsigned long)[categories count]);
+                  (unsigned long)[self.categories count]);
           }
         }
         _products = [parsedProducts copy];
         NSLog(@"Parsed [%lu] products, manufacturers: %lu, exporters: %lu, "
               @"categories: %lu.",
-              [_products count], (unsigned long)[manufacturers count],
-              (unsigned long)[exporters count],
-              (unsigned long)[categories count]);
+              [_products count], (unsigned long)[self.manufacturers count],
+              (unsigned long)[self.exporters count],
+              (unsigned long)[self.categories count]);
       }
     } else {
       NSLog(@"File not found [%@]", path);
