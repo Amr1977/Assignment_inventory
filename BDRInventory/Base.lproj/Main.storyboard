@@ -8,7 +8,7 @@
         <!--FilteringController-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController modalPresentationStyle="formSheet" id="vXZ-lx-hvc" userLabel="FilteringController" customClass="ViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="vXZ-lx-hvc" userLabel="FilteringController" customClass="BDInventoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -132,7 +132,7 @@
         <!--FilterResults-->
         <scene sceneID="9yb-Bm-MyW">
             <objects>
-                <viewController id="98l-ih-RIM" userLabel="FilterResults" customClass="BDInventoryFilterResults" sceneMemberID="viewController">
+                <viewController id="98l-ih-RIM" userLabel="FilterResults" customClass="BDInventoryResultsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RVO-eJ-68t"/>
                         <viewControllerLayoutGuide type="bottom" id="xsO-4f-4fB"/>

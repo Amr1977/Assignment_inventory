@@ -99,7 +99,7 @@ NSMutableSet *exporters;
         }
         result = [productExpireDate compare:expireRangeEndDate];
         beforeOrEqualEndDate =
-            ((result == NSOrderedAscending) || (result == NSOrderedSame));
+            ((result != NSOrderedDescending) );
 
         inRange = (afterOrEqualFirstDate && beforeOrEqualEndDate);
         return (inRange);

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Amr Lotfy. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "BDInventoryViewController.h"
 
-@interface ViewController ()
+@interface BDInventoryViewController ()
 @property(nonatomic) BDInventory *inventoryModel;
 @property(nonatomic) NSDictionary *lastResult;
 @property(weak, nonatomic) IBOutlet UISegmentedControl *grouping;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation ViewController
+@implementation BDInventoryViewController
 
 - (IBAction)expirySelection:(id)sender {
   if ([[self expireFilters] selectedSegmentIndex] == 2) {
@@ -117,9 +117,9 @@
   // Pass the selected object to the new view controller.
   [self applyFilters];
 
-  [(BDInventoryFilterResults *)[segue destinationViewController]
+  [(BDInventoryResultsViewController *)[segue destinationViewController]
       setResults:[self lastResult]];
-  [(BDInventoryFilterResults *)[segue destinationViewController]
+  [(BDInventoryResultsViewController *)[segue destinationViewController]
       setGroupingString:[self groupingMethod]];
   NSLog(@"ViewController: sent [%lu] group.", [[self lastResult] count]);
 }

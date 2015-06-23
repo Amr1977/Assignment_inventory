@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Amr Lotfy. All rights reserved.
 //
 
-#import "BDInventoryFilterResults.h"
+#import "BDInventoryResultsViewController.h"
 
-@interface BDInventoryFilterResults ()
+@interface BDInventoryResultsViewController ()
 
 @property(weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
-@implementation BDInventoryFilterResults
+@implementation BDInventoryResultsViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
