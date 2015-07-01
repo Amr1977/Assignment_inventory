@@ -10,18 +10,28 @@
 
 @interface BDInventory ()
 
-@property(nonatomic) NSArray *products;
+@property(nonatomic)  NSArray *products;
 @property(nonatomic)  NSMutableSet *manufacturers;
 @property(nonatomic)  NSMutableSet *categories;
 @property(nonatomic)  NSMutableSet *exporters;
+@property(nonatomic)  BDInventoryGropingMode groupingMode;
+
+
 
 @end
 
 @implementation BDInventory
 
++ (instancetype) inventory{
+    static BDInventory * inventoryObject = nil;
+    if (!inventoryObject){
+        inventoryObject=[[BDInventory alloc] init];
+    }
+    return inventoryObject;
+}
 
 
-- (NSDictionary *)getProductsByGrouping:(NSString *)grouping
+- (NSDictionary *)getProductsByGrouping:(BDInventoryGropingMode)grouping
                            expireFilter:(NSString *)expireFilter
                               startDate:(NSDate *)startDate
                                 endDate:(NSDate *)endDate {
@@ -109,34 +119,32 @@
   return result;
 }
 
-- (NSPredicate *)groupingBy:(NSString *)group withValue:(NSString *)value {
+- (NSPredicate *)groupingBy:(BDInventoryGropingMode)group withValue:(NSString *)value {
   NSPredicate *result = [NSPredicate
       predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         BOOL result = true;
-        NSInteger index = [[BDInventory allowedGrouping] indexOfObject:group];
-        if (index != NSNotFound) {
-          switch (index) {
-            case 0:  // manufacturer //TODO: better to define constants or enums
+          switch (group) {
+            case ManufacturersGrouping:  // manufacturer //TODO: better to define constants or enums
               return [
                   [[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
                   isEqualToString:[value lowercaseString]];
 
-            case 1:  // category
+            case CategoryGrouping:  // category
               return [[[(BDIProduct *)evaluatedObject category] lowercaseString]
                   isEqualToString:[value lowercaseString]];
 
-            case 2:
+            case ExporterGrouping:
               return
                   [[[(BDIProduct *)evaluatedObject exporterID] lowercaseString]
                       isEqualToString:[value lowercaseString]];
 
-            case 3:  // no_group
+            case NoGroup:  // no_group
               return true;
 
             default:
-              NSLog(@"unknown grouping by: [%@]", group);
+              NSLog(@"unknown grouping by: [%u]", group);
           }
-        }
+        
         return result;
       }];
 
@@ -144,7 +152,7 @@
 }
 
 - (NSArray *)filterProducts:(NSArray *)productsArray
-                  groupedBy:(NSString *)grouping
+                  groupedBy:(BDInventoryGropingMode)grouping
                   withValue:(NSString *)value {
   return [productsArray
       filteredArrayUsingPredicate:[self groupingBy:grouping withValue:value]];
@@ -156,27 +164,26 @@
  * dictionary
  */
 - (NSDictionary *)filterProducts:(NSArray *)productsArray
-                byGroupingMethod:(NSString *)grouping {
+                byGroupingMethod:(BDInventoryGropingMode)grouping {
   NSMutableDictionary *result;
-  NSInteger index = [[BDInventory allowedGrouping] indexOfObject:grouping];
-  if (index != NSNotFound) {
+  
+  
     result = [NSMutableDictionary new];
     NSMutableSet *groupingSet;
-    NSString *groupingString = [BDInventory allowedGrouping][index];
-    switch (index) {
-      case 0:  // manufacturer
+    switch (grouping) {
+      case ManufacturersGrouping:  // manufacturer
         groupingSet = self.manufacturers;
         break;
 
-      case 1:  // category
+      case CategoryGrouping:  // category
         groupingSet = self.categories;
         break;
 
-      case 2:  // exporter
+      case ExporterGrouping:  // exporter
         groupingSet = self.exporters;
         break;
 
-      case 3:  // no group
+      case NoGroup:  // no group
         groupingSet = nil;
         [result setValue:productsArray forKey:@"No Group"];
     }
@@ -185,13 +192,11 @@
       // create dictionary entry for each manufacturer with a value which is an
       // array of the products that are produced by this manufacturer
       [result setValue:[self filterProducts:productsArray
-                                  groupedBy:groupingString
+                                  groupedBy:grouping
                                   withValue:groupingKey]
                 forKey:groupingKey];
     }
-  } else {
-    NSLog(@"unkown grouping method [%@].", grouping);
-  }
+  
 
   return [result copy];
 }
@@ -255,9 +260,9 @@
     NSLog(@"%@ Error initializing", [self class]);
   }
   NSLog(@"products grouped by manufacturer %@",
-        [self filterProducts:[self products] byGroupingMethod:@"manufacturer"]);
+        [self filterProducts:[self products] byGroupingMethod:ManufacturersGrouping]);
   NSLog(@"non-expired products grouped by manufacturer %@",
-        [self getProductsByGrouping:@"manufacturer"
+        [self getProductsByGrouping:ManufacturersGrouping
                        expireFilter:@"non_expired"
                           startDate:nil
                             endDate:nil]);

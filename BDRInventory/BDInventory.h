@@ -10,9 +10,17 @@
 #import "BDIProduct.h"
 
 @interface BDInventory : NSObject
-- (NSDictionary *)getProductsByGrouping:(NSString *)grouping
+
+
+
+- (NSDictionary *)getProductsByGrouping:(BDInventoryGropingMode)grouping
                            expireFilter:(NSString *)expireFilter
                               startDate:(NSDate *)startDate
                                 endDate:(NSDate *)endDate;
+
+
+
+//singleton
++ (instancetype) inventory;
 
 @end

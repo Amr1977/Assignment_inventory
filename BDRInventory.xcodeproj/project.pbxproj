@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070453BE1B413F520038D3B7 /* BDIGrouping.m in Sources */ = {isa = PBXBuildFile; fileRef = 070453BD1B413F520038D3B7 /* BDIGrouping.m */; };
 		072200E01B1F04D800FCCB28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 072200DF1B1F04D800FCCB28 /* main.m */; };
 		072200E31B1F04D800FCCB28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 072200E21B1F04D800FCCB28 /* AppDelegate.m */; };
-		072200E61B1F04D800FCCB28 /* BDInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072200E51B1F04D800FCCB28 /* BDInventoryViewController.m */; };
 		072200E91B1F04D800FCCB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 072200E71B1F04D800FCCB28 /* Main.storyboard */; };
 		072200EB1B1F04D800FCCB28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 072200EA1B1F04D800FCCB28 /* Images.xcassets */; };
 		072200EE1B1F04D800FCCB28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072200EC1B1F04D800FCCB28 /* LaunchScreen.xib */; };
@@ -17,7 +17,9 @@
 		072201041B1F053600FCCB28 /* inventory_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 072201031B1F053600FCCB28 /* inventory_data.plist */; };
 		072201081B1F059400FCCB28 /* BDIProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 072201071B1F059400FCCB28 /* BDIProduct.m */; };
 		0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010A1B1F071500FCCB28 /* BDInventory.m */; };
-		0722010E1B20D15A00FCCB28 /* BDInventoryResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010D1B20D15A00FCCB28 /* BDInventoryResultsViewController.m */; };
+		0773E2ED1B42B80500357860 /* BDIProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */; };
+		07EDEF9C1B414B8500C43D74 /* BDIGrouping.h in Sources */ = {isa = PBXBuildFile; fileRef = 07EDEF9B1B414B8500C43D74 /* BDIGrouping.h */; };
+		07EDEF9F1B4167A100C43D74 /* BDITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070453BD1B413F520038D3B7 /* BDIGrouping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIGrouping.m; sourceTree = "<group>"; };
 		072200DA1B1F04D800FCCB28 /* BDRInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDRInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		072200DE1B1F04D800FCCB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		072200DF1B1F04D800FCCB28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		072200E11B1F04D800FCCB28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		072200E21B1F04D800FCCB28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		072200E41B1F04D800FCCB28 /* BDInventoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDInventoryViewController.h; sourceTree = "<group>"; };
-		072200E51B1F04D800FCCB28 /* BDInventoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDInventoryViewController.m; sourceTree = "<group>"; };
 		072200E81B1F04D800FCCB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		072200EA1B1F04D800FCCB28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		072200ED1B1F04D800FCCB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -49,8 +50,11 @@
 		072201071B1F059400FCCB28 /* BDIProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIProduct.m; sourceTree = "<group>"; };
 		072201091B1F071500FCCB28 /* BDInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDInventory.h; sourceTree = "<group>"; };
 		0722010A1B1F071500FCCB28 /* BDInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventory.m; sourceTree = "<group>"; };
-		0722010C1B20D15A00FCCB28 /* BDInventoryResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDInventoryResultsViewController.h; sourceTree = "<group>"; };
-		0722010D1B20D15A00FCCB28 /* BDInventoryResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventoryResultsViewController.m; sourceTree = "<group>"; };
+		0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIProductDetailsViewController.h; sourceTree = "<group>"; };
+		0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIProductDetailsViewController.m; sourceTree = "<group>"; };
+		07EDEF9B1B414B8500C43D74 /* BDIGrouping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDIGrouping.h; sourceTree = "<group>"; };
+		07EDEF9D1B4167A100C43D74 /* BDITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDITableViewController.h; sourceTree = "<group>"; };
+		07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDITableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +99,10 @@
 				072201051B1F055100FCCB28 /* Model */,
 				072200E11B1F04D800FCCB28 /* AppDelegate.h */,
 				072200E21B1F04D800FCCB28 /* AppDelegate.m */,
-				072200E41B1F04D800FCCB28 /* BDInventoryViewController.h */,
-				072200E51B1F04D800FCCB28 /* BDInventoryViewController.m */,
-				0722010C1B20D15A00FCCB28 /* BDInventoryResultsViewController.h */,
-				0722010D1B20D15A00FCCB28 /* BDInventoryResultsViewController.m */,
+				07EDEF9D1B4167A100C43D74 /* BDITableViewController.h */,
+				07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */,
+				0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */,
+				0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */,
 				072200E71B1F04D800FCCB28 /* Main.storyboard */,
 				072200EA1B1F04D800FCCB28 /* Images.xcassets */,
 				072200EC1B1F04D800FCCB28 /* LaunchScreen.xib */,
@@ -141,6 +145,8 @@
 				072201071B1F059400FCCB28 /* BDIProduct.m */,
 				072201091B1F071500FCCB28 /* BDInventory.h */,
 				0722010A1B1F071500FCCB28 /* BDInventory.m */,
+				07EDEF9B1B414B8500C43D74 /* BDIGrouping.h */,
+				070453BD1B413F520038D3B7 /* BDIGrouping.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,12 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EDEF9C1B414B8500C43D74 /* BDIGrouping.h in Sources */,
 				0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */,
-				072200E61B1F04D800FCCB28 /* BDInventoryViewController.m in Sources */,
 				072200E31B1F04D800FCCB28 /* AppDelegate.m in Sources */,
-				0722010E1B20D15A00FCCB28 /* BDInventoryResultsViewController.m in Sources */,
+				070453BE1B413F520038D3B7 /* BDIGrouping.m in Sources */,
 				072200E01B1F04D800FCCB28 /* main.m in Sources */,
+				07EDEF9F1B4167A100C43D74 /* BDITableViewController.m in Sources */,
 				072201081B1F059400FCCB28 /* BDIProduct.m in Sources */,
+				0773E2ED1B42B80500357860 /* BDIProductDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
