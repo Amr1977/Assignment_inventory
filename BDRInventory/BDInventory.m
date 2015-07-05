@@ -233,6 +233,7 @@
             NSLog(@"number of manufacturers so far: %lu",
                   (unsigned long)[self.manufacturers count]);
           }
+            
           if ([product exporterID]) {
             [self.exporters addObject:[product exporterID]];
             NSLog(@"number of exporters so far: %lu",

@@ -27,20 +27,21 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /**
-    NSLog(@"entered didSelectRowAtIndexPath: %@",indexPath);
-    NSString * key= ([[self results] allKeys])[indexPath.section];
+    
+    NSLog(@"entered didSelectRowAtIndexPath: section: %ld , row: %ld",(long)indexPath.section, (long)indexPath.row );
+    NSString * key= ([BDInventory.inventory.getResults allKeys])[indexPath.section];
     NSLog(@"selected key: %@",key);
 
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                             bundle: nil];
+    //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"   bundle: nil];
     
-    BDIProductDetailsViewController * detailsVC = (BDIProductDetailsViewController *) [mainStoryboard instantiateViewControllerWithIdentifier: @"details"];
+  //  BDIProductDetailsViewController * detailsVC = (BDIProductDetailsViewController *) [mainStoryboard instantiateViewControllerWithIdentifier: @"details"];
 
-    [detailsVC setProduct:([self results][key])[indexPath.row]];
-    [self.navigationController pushViewController:detailsVC animated:YES];
-     */
+    //[detailsVC setProduct:(BDInventory.inventory.getResults[key])[indexPath.row]];
     
+    BDInventory.inventory.product = (BDInventory.inventory.getResults[key])[indexPath.row];
+    NSLog(@"selected product: %@",BDInventory.inventory.product );
+//    [[self navigationController] pushViewController:detailsVC animated:YES];
+    //[self performSegueWithIdentifier:@"getDetails" sender: BDInventory.inventory.product  ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,9 +61,14 @@
     // Return the number of rows in the section.
     NSArray * keys= [BDInventory.inventory.getResults allKeys];
     NSString * key=keys[section];
+    NSLog(@"section: %ld , entries: %ld",section,[BDInventory.inventory.getResults[key] count] );
     return [BDInventory.inventory.getResults[key] count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[BDInventory inventory] getResults] allKeys][section];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell" forIndexPath:indexPath];
@@ -119,14 +125,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"entered prepareForSegue: segue id %@", [segue identifier]);
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"   bundle: nil];
+    
+    //BDIProductDetailsViewController * detailsVC = (BDIProductDetailsViewController *) [mainStoryboard instantiateViewControllerWithIdentifier: @"details"];
+    //[[self navigationController] pushViewController:detailsVC animated:YES];
 }
-*/
+
 
 @end

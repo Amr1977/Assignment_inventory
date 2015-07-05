@@ -51,7 +51,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lxP-KL-oWP" kind="show" identifier="table" id="635-Ag-Rwl"/>
+                                    <segue destination="lxP-KL-oWP" kind="show" id="15Q-m4-sLg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire Filter State" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-b5-CcO">
@@ -183,10 +183,10 @@
         <scene sceneID="6NR-wg-DLe">
             <objects>
                 <tableViewController storyboardIdentifier="table" id="lxP-KL-oWP" customClass="BDITableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fmc-RM-Lzk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fmc-RM-Lzk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="productCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" textLabel="kFq-wI-f0c" detailTextLabel="63f-xS-gK7" style="IBUITableViewCellStyleValue1" id="WqA-FR-lod">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -208,7 +208,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9gV-0f-unm" kind="showDetail" id="qkT-Mc-uLL"/>
+                                    <segue destination="9gV-0f-unm" kind="show" identifier="getDetails" id="rr0-kD-OUu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -221,12 +221,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pON-YX-P6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="-960"/>
+            <point key="canvasLocation" x="2738" y="-960"/>
         </scene>
         <!--Product Details-->
         <scene sceneID="y9b-D4-C8u">
             <objects>
-                <viewController restorationIdentifier="details" storyboardIdentifier="details" title="Product Details" id="9gV-0f-unm" customClass="BDIProductDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="details" title="Product Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9gV-0f-unm" customClass="BDIProductDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aqC-GD-1NF"/>
                         <viewControllerLayoutGuide type="bottom" id="8H1-XU-gkb"/>
@@ -366,19 +366,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="category" destination="cCg-3s-z8d" id="DTB-aE-IeS"/>
-                        <outlet property="expireDate" destination="cCg-3s-z8d" id="IIb-1N-l9g"/>
-                        <outlet property="exporterID" destination="cCg-3s-z8d" id="lSz-st-gkf"/>
-                        <outlet property="exporterId" destination="cCg-3s-z8d" id="9so-8Y-1WV"/>
-                        <outlet property="manufacturer" destination="cCg-3s-z8d" id="YP8-h6-M3U"/>
-                        <outlet property="name" destination="cCg-3s-z8d" id="86u-Rr-zeM"/>
-                        <outlet property="price" destination="cCg-3s-z8d" id="tVs-Dd-Ket"/>
-                        <outlet property="quantity" destination="cCg-3s-z8d" id="cBd-x2-lfm"/>
+                        <outlet property="category" destination="zut-mx-AOB" id="hb6-Sm-faJ"/>
+                        <outlet property="expireDate" destination="ANy-jm-hgo" id="D1R-dX-ykT"/>
+                        <outlet property="exporterId" destination="vvt-ZG-SO6" id="I5w-sd-aOD"/>
+                        <outlet property="manufacturer" destination="yIV-G0-31b" id="gBQ-Ue-ljp"/>
+                        <outlet property="name" destination="7dC-fD-Snl" id="s8v-LE-4Rh"/>
+                        <outlet property="price" destination="NPs-0S-STS" id="2P1-iO-Tst"/>
+                        <outlet property="quantity" destination="X1y-tC-uaT" id="9gj-Uo-kZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88B-Uj-yk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3379" y="-960"/>
+            <point key="canvasLocation" x="4441" y="-960"/>
         </scene>
     </scenes>
 </document>

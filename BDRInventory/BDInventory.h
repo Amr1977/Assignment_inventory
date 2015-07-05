@@ -17,6 +17,7 @@
 @property (nonatomic) NSDate * startDate;
 @property (nonatomic) NSDate * endDate;
 @property (nonatomic)  NSArray *products;
+@property (nonatomic) BDIProduct * product;
 
 -(NSDictionary *) getResults;
 
