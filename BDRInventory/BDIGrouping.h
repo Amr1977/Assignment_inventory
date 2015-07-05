@@ -17,4 +17,10 @@ typedef enum {
     NoGroup
 } BDInventoryGropingMode;
 
+typedef enum{
+    BDIProductExpired,
+    BDIProductNonExpired,
+    BDIProductInRange
+} BDIExpireFilterMode;
+
 @end

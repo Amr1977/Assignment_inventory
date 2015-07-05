@@ -18,6 +18,9 @@
 		072201081B1F059400FCCB28 /* BDIProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 072201071B1F059400FCCB28 /* BDIProduct.m */; };
 		0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010A1B1F071500FCCB28 /* BDInventory.m */; };
 		0773E2ED1B42B80500357860 /* BDIProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */; };
+		0773E2F01B450CBF00357860 /* BDIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2EF1B450CBF00357860 /* BDIMainViewController.m */; };
+		0773E2F31B450CED00357860 /* BDIExpireFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2F21B450CED00357860 /* BDIExpireFilterViewController.m */; };
+		0773E2F61B45241E00357860 /* TabBarViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2F51B45241E00357860 /* TabBarViewControllerDelegate.m */; };
 		07EDEF9C1B414B8500C43D74 /* BDIGrouping.h in Sources */ = {isa = PBXBuildFile; fileRef = 07EDEF9B1B414B8500C43D74 /* BDIGrouping.h */; };
 		07EDEF9F1B4167A100C43D74 /* BDITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,12 @@
 		0722010A1B1F071500FCCB28 /* BDInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventory.m; sourceTree = "<group>"; };
 		0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIProductDetailsViewController.h; sourceTree = "<group>"; };
 		0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIProductDetailsViewController.m; sourceTree = "<group>"; };
+		0773E2EE1B450CBF00357860 /* BDIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIMainViewController.h; sourceTree = "<group>"; };
+		0773E2EF1B450CBF00357860 /* BDIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIMainViewController.m; sourceTree = "<group>"; };
+		0773E2F11B450CED00357860 /* BDIExpireFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIExpireFilterViewController.h; sourceTree = "<group>"; };
+		0773E2F21B450CED00357860 /* BDIExpireFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIExpireFilterViewController.m; sourceTree = "<group>"; };
+		0773E2F41B45241E00357860 /* TabBarViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewControllerDelegate.h; sourceTree = "<group>"; };
+		0773E2F51B45241E00357860 /* TabBarViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewControllerDelegate.m; sourceTree = "<group>"; };
 		07EDEF9B1B414B8500C43D74 /* BDIGrouping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDIGrouping.h; sourceTree = "<group>"; };
 		07EDEF9D1B4167A100C43D74 /* BDITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDITableViewController.h; sourceTree = "<group>"; };
 		07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDITableViewController.m; sourceTree = "<group>"; };
@@ -103,10 +112,16 @@
 				07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */,
 				0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */,
 				0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */,
+				0773E2EE1B450CBF00357860 /* BDIMainViewController.h */,
+				0773E2EF1B450CBF00357860 /* BDIMainViewController.m */,
+				0773E2F11B450CED00357860 /* BDIExpireFilterViewController.h */,
+				0773E2F21B450CED00357860 /* BDIExpireFilterViewController.m */,
 				072200E71B1F04D800FCCB28 /* Main.storyboard */,
 				072200EA1B1F04D800FCCB28 /* Images.xcassets */,
 				072200EC1B1F04D800FCCB28 /* LaunchScreen.xib */,
 				072200DD1B1F04D800FCCB28 /* Supporting Files */,
+				0773E2F41B45241E00357860 /* TabBarViewControllerDelegate.h */,
+				0773E2F51B45241E00357860 /* TabBarViewControllerDelegate.m */,
 			);
 			path = BDRInventory;
 			sourceTree = "<group>";
@@ -252,12 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0773E2F61B45241E00357860 /* TabBarViewControllerDelegate.m in Sources */,
 				07EDEF9C1B414B8500C43D74 /* BDIGrouping.h in Sources */,
+				0773E2F01B450CBF00357860 /* BDIMainViewController.m in Sources */,
 				0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */,
 				072200E31B1F04D800FCCB28 /* AppDelegate.m in Sources */,
 				070453BE1B413F520038D3B7 /* BDIGrouping.m in Sources */,
 				072200E01B1F04D800FCCB28 /* main.m in Sources */,
 				07EDEF9F1B4167A100C43D74 /* BDITableViewController.m in Sources */,
+				0773E2F31B450CED00357860 /* BDIExpireFilterViewController.m in Sources */,
 				072201081B1F059400FCCB28 /* BDIProduct.m in Sources */,
 				0773E2ED1B42B80500357860 /* BDIProductDetailsViewController.m in Sources */,
 			);

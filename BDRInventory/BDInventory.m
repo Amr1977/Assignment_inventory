@@ -14,8 +14,6 @@
 @property(nonatomic)  NSMutableSet *manufacturers;
 @property(nonatomic)  NSMutableSet *categories;
 @property(nonatomic)  NSMutableSet *exporters;
-@property(nonatomic)  BDInventoryGropingMode groupingMode;
-
 
 
 @end
@@ -31,8 +29,13 @@
 }
 
 
+-(NSDictionary *) getResults{
+   return [self getProductsByGrouping:self.groupingMode expireFilter:self.expireFilterMode startDate:self.startDate endDate:self.endDate];
+}
+
+
 - (NSDictionary *)getProductsByGrouping:(BDInventoryGropingMode)grouping
-                           expireFilter:(NSString *)expireFilter
+                           expireFilter:(BDIExpireFilterMode)expireFilter
                               startDate:(NSDate *)startDate
                                 endDate:(NSDate *)endDate {
   // The main method, performs filtering on expire filter then the result
@@ -45,31 +48,26 @@
   return groupedProducts;
 }
 
-- (NSArray *)getProductsByExpireFilter:(NSString *)expireFilter
+- (NSArray *)getProductsByExpireFilter:(BDIExpireFilterMode)expireFilterMode
                              startDate:(NSDate *)startDate
                                endDate:(NSDate *)endDate {
   NSArray *result = [self products];
-  NSInteger index =
-      [[BDInventory allowedExpireFiltering] indexOfObject:expireFilter];
-  if (index != NSNotFound) {
     NSPredicate *expireFilter;
-    switch (index) {
-      case 0:  // expired
+    switch (expireFilterMode) {
+      case BDIProductExpired:  // expired
         expireFilter = [self expired];
         break;
-      case 1:  // non expired
+      case BDIProductNonExpired:  // non expired
         expireFilter = [self nonExpired];
         break;
 
-      case 2:  // in range
+      case BDIProductInRange:  // in range
         expireFilter = [self expiresInRangeStart:startDate RangeEnd:endDate];
-        break;
-      default:
         break;
     }
 
     result = [[self products] filteredArrayUsingPredicate:expireFilter];
-  }
+  
 
   return result;
 }

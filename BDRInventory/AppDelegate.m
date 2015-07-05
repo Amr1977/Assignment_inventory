@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TabBarViewControllerDelegate.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UITabBarController * tabBarController = [[TabBarViewControllerDelegate alloc] init];
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    
   return YES;
 }
 
@@ -27,6 +35,7 @@
   // and it begins the transition to the background state.
   // Use this method to pause ongoing tasks, disable timers, and throttle down
   // OpenGL ES frame rates. Games should use this method to pause the game.
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
