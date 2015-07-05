@@ -12,5 +12,4 @@
 
 @interface BDIProductDetailsViewController : UIViewController
 
-
 @end

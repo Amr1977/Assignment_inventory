@@ -9,18 +9,17 @@
 
 @interface BDIGrouping : NSObject
 
-
 typedef enum {
-    ManufacturersGrouping,
-    CategoryGrouping,
-    ExporterGrouping,
-    NoGroup
+  ManufacturersGrouping,
+  CategoryGrouping,
+  ExporterGrouping,
+  NoGroup
 } BDInventoryGropingMode;
 
-typedef enum{
-    BDIProductExpired,
-    BDIProductNonExpired,
-    BDIProductInRange
+typedef enum {
+  BDIProductExpired,
+  BDIProductNonExpired,
+  BDIProductInRange
 } BDIExpireFilterMode;
 
 @end

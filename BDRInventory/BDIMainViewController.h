@@ -13,8 +13,6 @@
 #import "BDInventory.h"
 
 @interface BDIMainViewController : UIViewController
-@property (nonatomic) BDIExpireFilterMode expireFilterMode;
-@property (nonatomic) NSDate * startDate;
-@property (nonatomic) NSDate * endDate;
+
 
 @end

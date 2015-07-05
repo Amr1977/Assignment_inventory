@@ -11,7 +11,7 @@
 #import "BDInventory.h"
 
 @interface BDIExpireFilterViewController : UIViewController
-@property (nonatomic) BDIExpireFilterMode storedFilterMode;
-@property (nonatomic) NSDate * storedStartDate;
-@property (nonatomic) NSDate * storedEndDate;
+//@property (nonatomic) BDIExpireFilterMode storedFilterMode;
+//@property (nonatomic) NSDate * storedStartDate;
+//@property (nonatomic) NSDate * storedEndDate;
 @end

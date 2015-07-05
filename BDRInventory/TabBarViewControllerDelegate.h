@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BDInventory.h"
 
-@interface TabBarViewControllerDelegate : UITabBarController <UITabBarControllerDelegate >
+@interface TabBarViewControllerDelegate
+    : UITabBarController<UITabBarControllerDelegate>
 
 @end

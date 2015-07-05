@@ -10,29 +10,28 @@
 
 @interface BDInventory ()
 
-
-@property(nonatomic)  NSMutableSet *manufacturers;
-@property(nonatomic)  NSMutableSet *categories;
-@property(nonatomic)  NSMutableSet *exporters;
-
+@property(nonatomic) NSMutableSet *manufacturers;
+@property(nonatomic) NSMutableSet *categories;
+@property(nonatomic) NSMutableSet *exporters;
 
 @end
 
 @implementation BDInventory
 
-+ (instancetype) inventory{
-    static BDInventory * inventoryObject = nil;
-    if (!inventoryObject){
-        inventoryObject=[[BDInventory alloc] init];
-    }
-    return inventoryObject;
++ (instancetype)inventory {
+  static BDInventory *inventoryObject = nil;
+  if (!inventoryObject) {
+    inventoryObject = [[BDInventory alloc] init];
+  }
+  return inventoryObject;
 }
 
-
--(NSDictionary *) getResults{
-   return [self getProductsByGrouping:self.groupingMode expireFilter:self.expireFilterMode startDate:self.startDate endDate:self.endDate];
+- (NSDictionary *)getResults {
+  return [self getProductsByGrouping:self.groupingMode
+                        expireFilter:self.expireFilterMode
+                           startDate:self.startDate
+                             endDate:self.endDate];
 }
-
 
 - (NSDictionary *)getProductsByGrouping:(BDInventoryGropingMode)grouping
                            expireFilter:(BDIExpireFilterMode)expireFilter
@@ -52,32 +51,31 @@
                              startDate:(NSDate *)startDate
                                endDate:(NSDate *)endDate {
   NSArray *result = [self products];
-    NSPredicate *expireFilter;
-    switch (expireFilterMode) {
-      case BDIProductExpired:  // expired
-        expireFilter = [self expired];
-        break;
-      case BDIProductNonExpired:  // non expired
-        expireFilter = [self nonExpired];
-        break;
+  NSPredicate *expireFilter;
+  switch (expireFilterMode) {
+    case BDIProductExpired:  // expired
+      expireFilter = [self expired];
+      break;
+    case BDIProductNonExpired:  // non expired
+      expireFilter = [self nonExpired];
+      break;
 
-      case BDIProductInRange:  // in range
-        expireFilter = [self expiresInRangeStart:startDate RangeEnd:endDate];
-        break;
-    }
+    case BDIProductInRange:  // in range
+      expireFilter = [self expiresInRangeStart:startDate RangeEnd:endDate];
+      break;
+  }
 
-    result = [[self products] filteredArrayUsingPredicate:expireFilter];
-  
+  result = [[self products] filteredArrayUsingPredicate:expireFilter];
 
   return result;
 }
 
-+ (NSArray *)allowedGrouping {//TODO: better to use enumeration
++ (NSArray *)allowedGrouping {  // TODO: better to use enumeration
   return [[NSArray alloc] initWithObjects:@"manufacturer", @"category",
                                           @"exporter", @"no_group", nil];
 }
 
-+ (NSArray *)allowedExpireFiltering {//TODO: better to use enumeration
++ (NSArray *)allowedExpireFiltering {  // TODO: better to use enumeration
   return [[NSArray alloc]
       initWithObjects:@"expired", @"non_expired", @"in_range", nil];
 }
@@ -107,8 +105,7 @@
           return (false);
         }
         result = [productExpireDate compare:expireRangeEndDate];
-        beforeOrEqualEndDate =
-            ((result != NSOrderedDescending) );
+        beforeOrEqualEndDate = ((result != NSOrderedDescending));
 
         inRange = (afterOrEqualFirstDate && beforeOrEqualEndDate);
         return (inRange);
@@ -117,32 +114,33 @@
   return result;
 }
 
-- (NSPredicate *)groupingBy:(BDInventoryGropingMode)group withValue:(NSString *)value {
+- (NSPredicate *)groupingBy:(BDInventoryGropingMode)group
+                  withValue:(NSString *)value {
   NSPredicate *result = [NSPredicate
       predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         BOOL result = true;
-          switch (group) {
-            case ManufacturersGrouping:  // manufacturer //TODO: better to define constants or enums
-              return [
-                  [[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
-                  isEqualToString:[value lowercaseString]];
+        switch (group) {
+          case ManufacturersGrouping:  // manufacturer //TODO: better to define
+                                       // constants or enums
+            return
+                [[[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
+                    isEqualToString:[value lowercaseString]];
 
-            case CategoryGrouping:  // category
-              return [[[(BDIProduct *)evaluatedObject category] lowercaseString]
-                  isEqualToString:[value lowercaseString]];
+          case CategoryGrouping:  // category
+            return [[[(BDIProduct *)evaluatedObject category] lowercaseString]
+                isEqualToString:[value lowercaseString]];
 
-            case ExporterGrouping:
-              return
-                  [[[(BDIProduct *)evaluatedObject exporterID] lowercaseString]
-                      isEqualToString:[value lowercaseString]];
+          case ExporterGrouping:
+            return [[[(BDIProduct *)evaluatedObject exporterID] lowercaseString]
+                isEqualToString:[value lowercaseString]];
 
-            case NoGroup:  // no_group
-              return true;
+          case NoGroup:  // no_group
+            return true;
 
-            default:
-              NSLog(@"unknown grouping by: [%u]", group);
-          }
-        
+          default:
+            NSLog(@"unknown grouping by: [%u]", group);
+        }
+
         return result;
       }];
 
@@ -164,37 +162,35 @@
 - (NSDictionary *)filterProducts:(NSArray *)productsArray
                 byGroupingMethod:(BDInventoryGropingMode)grouping {
   NSMutableDictionary *result;
-  
-  
-    result = [NSMutableDictionary new];
-    NSMutableSet *groupingSet;
-    switch (grouping) {
-      case ManufacturersGrouping:  // manufacturer
-        groupingSet = self.manufacturers;
-        break;
 
-      case CategoryGrouping:  // category
-        groupingSet = self.categories;
-        break;
+  result = [NSMutableDictionary new];
+  NSMutableSet *groupingSet;
+  switch (grouping) {
+    case ManufacturersGrouping:  // manufacturer
+      groupingSet = self.manufacturers;
+      break;
 
-      case ExporterGrouping:  // exporter
-        groupingSet = self.exporters;
-        break;
+    case CategoryGrouping:  // category
+      groupingSet = self.categories;
+      break;
 
-      case NoGroup:  // no group
-        groupingSet = nil;
-        [result setValue:productsArray forKey:@"No Group"];
-    }
+    case ExporterGrouping:  // exporter
+      groupingSet = self.exporters;
+      break;
 
-    for (NSString *groupingKey in groupingSet) {
-      // create dictionary entry for each manufacturer with a value which is an
-      // array of the products that are produced by this manufacturer
-      [result setValue:[self filterProducts:productsArray
-                                  groupedBy:grouping
-                                  withValue:groupingKey]
-                forKey:groupingKey];
-    }
-  
+    case NoGroup:  // no group
+      groupingSet = nil;
+      [result setValue:productsArray forKey:@"No Group"];
+  }
+
+  for (NSString *groupingKey in groupingSet) {
+    // create dictionary entry for each manufacturer with a value which is an
+    // array of the products that are produced by this manufacturer
+    [result setValue:[self filterProducts:productsArray
+                                groupedBy:grouping
+                                withValue:groupingKey]
+              forKey:groupingKey];
+  }
 
   return [result copy];
 }
@@ -233,7 +229,7 @@
             NSLog(@"number of manufacturers so far: %lu",
                   (unsigned long)[self.manufacturers count]);
           }
-            
+
           if ([product exporterID]) {
             [self.exporters addObject:[product exporterID]];
             NSLog(@"number of exporters so far: %lu",
@@ -259,7 +255,8 @@
     NSLog(@"%@ Error initializing", [self class]);
   }
   NSLog(@"products grouped by manufacturer %@",
-        [self filterProducts:[self products] byGroupingMethod:ManufacturersGrouping]);
+        [self filterProducts:[self products]
+            byGroupingMethod:ManufacturersGrouping]);
   NSLog(@"non-expired products grouped by manufacturer %@",
         [self getProductsByGrouping:ManufacturersGrouping
                        expireFilter:BDIProductNonExpired

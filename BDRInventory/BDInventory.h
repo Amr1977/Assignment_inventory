@@ -11,25 +11,21 @@
 
 @interface BDInventory : NSObject
 
+@property(nonatomic) BDIExpireFilterMode expireFilterMode;
+@property(nonatomic) BDInventoryGropingMode groupingMode;
+@property(nonatomic) NSDate *startDate;
+@property(nonatomic) NSDate *endDate;
+@property(nonatomic) NSArray *products;
+@property(nonatomic) BDIProduct *product;
 
-@property (nonatomic) BDIExpireFilterMode expireFilterMode;
-@property (nonatomic) BDInventoryGropingMode groupingMode;
-@property (nonatomic) NSDate * startDate;
-@property (nonatomic) NSDate * endDate;
-@property (nonatomic)  NSArray *products;
-@property (nonatomic) BDIProduct * product;
-
--(NSDictionary *) getResults;
+- (NSDictionary *)getResults;
 
 - (NSDictionary *)getProductsByGrouping:(BDInventoryGropingMode)grouping
                            expireFilter:(BDIExpireFilterMode)expireFilter
                               startDate:(NSDate *)startDate
                                 endDate:(NSDate *)endDate;
 
-
-
-
-//singleton
-+ (instancetype) inventory;
+// singleton
++ (instancetype)inventory;
 
 @end
