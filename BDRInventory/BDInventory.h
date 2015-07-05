@@ -16,6 +16,7 @@
 @property (nonatomic) BDInventoryGropingMode groupingMode;
 @property (nonatomic) NSDate * startDate;
 @property (nonatomic) NSDate * endDate;
+@property (nonatomic)  NSArray *products;
 
 -(NSDictionary *) getResults;
 

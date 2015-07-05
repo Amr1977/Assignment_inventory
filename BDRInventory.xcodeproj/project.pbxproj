@@ -108,6 +108,8 @@
 				072201051B1F055100FCCB28 /* Model */,
 				072200E11B1F04D800FCCB28 /* AppDelegate.h */,
 				072200E21B1F04D800FCCB28 /* AppDelegate.m */,
+				0773E2F41B45241E00357860 /* TabBarViewControllerDelegate.h */,
+				0773E2F51B45241E00357860 /* TabBarViewControllerDelegate.m */,
 				07EDEF9D1B4167A100C43D74 /* BDITableViewController.h */,
 				07EDEF9E1B4167A100C43D74 /* BDITableViewController.m */,
 				0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */,
@@ -120,8 +122,6 @@
 				072200EA1B1F04D800FCCB28 /* Images.xcassets */,
 				072200EC1B1F04D800FCCB28 /* LaunchScreen.xib */,
 				072200DD1B1F04D800FCCB28 /* Supporting Files */,
-				0773E2F41B45241E00357860 /* TabBarViewControllerDelegate.h */,
-				0773E2F51B45241E00357860 /* TabBarViewControllerDelegate.m */,
 			);
 			path = BDRInventory;
 			sourceTree = "<group>";

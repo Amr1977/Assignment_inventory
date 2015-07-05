@@ -27,6 +27,7 @@
         [self.endDate setHidden:NO];
         [self.fromLabel setHidden:NO];
         [self.toLabel setHidden:NO];
+        
     }else{
         [self.startDate setHidden:YES];
         [self.endDate setHidden:YES];
@@ -35,12 +36,36 @@
         
     }
     
-    self.storedFilterMode = [self.filterMode selectedSegmentIndex];
+    switch ([self.filterMode selectedSegmentIndex]) {
+        case 0:
+            BDInventory.inventory.expireFilterMode=BDIProductExpired;
+            break;
+        case 1:
+            BDInventory.inventory.expireFilterMode=BDIProductNonExpired;
+            break;
+        case 2:
+            BDInventory.inventory.expireFilterMode=BDIProductInRange;
+            break;
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    switch ([BDInventory inventory].expireFilterMode) {
+        case BDIProductExpired:
+            [self.filterMode setSelectedSegmentIndex: 0];
+            break;
+        case BDIProductNonExpired:
+            [self.filterMode setSelectedSegmentIndex: 1];
+            break;
+        case BDIProductInRange  :
+            [self.filterMode setSelectedSegmentIndex: 2];
+            [self.startDate setDate: [[BDInventory inventory] startDate]];
+            [self.endDate setDate: [[BDInventory inventory] endDate]];
+            break;
+    }
     
     [self.filterMode setSelectedSegmentIndex: self.storedFilterMode];
     if (self.storedStartDate) {
@@ -83,6 +108,18 @@
     
     [(BDIMainViewController *)[segue destinationViewController] setExpireFilterMode:expirefilterMode];
     NSLog(@"Destination VC: %@",[segue.destinationViewController title]);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"Expire date filter View will disappear !");
+    
+    //propagate values to model
+    
+    [[BDInventory inventory] setStartDate:[[self startDate] date]];
+    [[BDInventory inventory] setEndDate:[[self endDate] date]];
+
+    
+    
 }
 
 

@@ -7,10 +7,10 @@
 //
 
 #import "BDITableViewController.h"
-#import "BDIProductDetailsViewController.h"
+
 
 @interface BDITableViewController ()
-@property (nonatomic) NSArray * results;
+
 @end
 
 @implementation BDITableViewController
@@ -27,9 +27,19 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BDIProductDetailsViewController * detailsVC = [[BDIProductDetailsViewController alloc] init];
-    [detailsVC setProduct:[self results][indexPath.row]];
+    /**
+    NSLog(@"entered didSelectRowAtIndexPath: %@",indexPath);
+    NSString * key= ([[self results] allKeys])[indexPath.section];
+    NSLog(@"selected key: %@",key);
+
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    
+    BDIProductDetailsViewController * detailsVC = (BDIProductDetailsViewController *) [mainStoryboard instantiateViewControllerWithIdentifier: @"details"];
+
+    [detailsVC setProduct:([self results][key])[indexPath.row]];
     [self.navigationController pushViewController:detailsVC animated:YES];
+     */
     
 }
 
@@ -42,12 +52,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    
+    return ([BDInventory.inventory.getResults count]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[self results] count];
+    NSArray * keys= [BDInventory.inventory.getResults allKeys];
+    NSString * key=keys[section];
+    return [BDInventory.inventory.getResults[key] count];
 }
 
 
@@ -59,7 +72,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"productCell"];
     }
     
-    BDIProduct * product= (BDIProduct *)[[self results] objectAtIndex:indexPath.row];
+    NSArray * keys= [BDInventory.inventory.getResults allKeys];
+    NSString * key = keys[indexPath.section];
+    
+    BDIProduct * product= BDInventory.inventory.getResults[key][indexPath.row];
     
     cell.textLabel.text = [product name];
     
@@ -103,7 +119,7 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -111,6 +127,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
+*/
 
 @end

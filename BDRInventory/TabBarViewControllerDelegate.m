@@ -57,8 +57,12 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
+    NSString * title = [[self selectedViewController] title];
     
     NSLog(@"Selected tab: %@",[[self selectedViewController] title]);
+    
+    
+    
     
 }
 

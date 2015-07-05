@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "BDIGrouping.h"
 #import "BDIExpireFilterViewController.h"
+#import "BDInventory.h"
 
 @interface BDIMainViewController : UIViewController
 @property (nonatomic) BDIExpireFilterMode expireFilterMode;

@@ -10,7 +10,7 @@
 
 @interface BDInventory ()
 
-@property(nonatomic)  NSArray *products;
+
 @property(nonatomic)  NSMutableSet *manufacturers;
 @property(nonatomic)  NSMutableSet *categories;
 @property(nonatomic)  NSMutableSet *exporters;
@@ -261,7 +261,7 @@
         [self filterProducts:[self products] byGroupingMethod:ManufacturersGrouping]);
   NSLog(@"non-expired products grouped by manufacturer %@",
         [self getProductsByGrouping:ManufacturersGrouping
-                       expireFilter:@"non_expired"
+                       expireFilter:BDIProductNonExpired
                           startDate:nil
                             endDate:nil]);
   return self;

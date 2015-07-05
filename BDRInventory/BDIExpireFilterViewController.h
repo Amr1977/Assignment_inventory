@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BDIMainViewController.h"
+#import "BDInventory.h"
 
 @interface BDIExpireFilterViewController : UIViewController
 @property (nonatomic) BDIExpireFilterMode storedFilterMode;

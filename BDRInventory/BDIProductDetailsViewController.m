@@ -9,13 +9,7 @@
 #import "BDIProductDetailsViewController.h"
 
 @interface BDIProductDetailsViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *name;
-@property (strong, nonatomic) IBOutlet UITextField *manufacturer;
-@property (strong, nonatomic) IBOutlet UITextField *category;
-@property (strong, nonatomic) IBOutlet UITextField *exporterID;
-@property (strong, nonatomic) IBOutlet UITextField *expireDate;
-@property (strong, nonatomic) IBOutlet UITextField *price;
-@property (strong, nonatomic) IBOutlet UITextField *quantity;
+
 
 @end
 
@@ -26,26 +20,26 @@
     // Do any additional setup after loading the view.
     
     if ([self product]){
-        NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"dd/MMM/yyyy"];
-        
-        NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
-        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-        
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        //[numberFormatter setNumberStyle:NSnu];
-        [numberFormatter
-         setGroupingSeparator:[[NSLocale currentLocale]
-                               objectForKey:NSLocaleGroupingSeparator]];
-        [numberFormatter setUsesGroupingSeparator:YES];
-        
-        self.name.text=self.product.name;
-        self.manufacturer.text=self.product.manufacturer;
-        self.category.text=self.product.category;
-        self.exporterID.text=self.product.exporterID;
-        self.expireDate.text = [format stringFromDate:self.product.expireDate];
-        self.price.text = [NSString stringWithFormat:@"%@",[currencyFormatter stringFromNumber:self.product.price]];
-        self.quantity.text = [numberFormatter stringFromNumber:[NSNumber numberWithInteger:self.product.quantity]];
+//        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//        [format setDateFormat:@"dd/MMM/yyyy"];
+//        
+//        NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+//        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+//        
+//        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+//        //[numberFormatter setNumberStyle:NSnu];
+//        [numberFormatter
+//         setGroupingSeparator:[[NSLocale currentLocale]
+//                               objectForKey:NSLocaleGroupingSeparator]];
+//        [numberFormatter setUsesGroupingSeparator:YES];
+//        NSLog(@"view did load (1)");
+//        self.name.text=self.product.name;
+//        self.manufacturer.text=self.product.manufacturer;
+//        self.category.text=self.product.category;
+//        self.exporterID.text=self.product.exporterID;
+//        self.expireDate.text = [format stringFromDate:self.product.expireDate];
+//        self.price.text = [NSString stringWithFormat:@"%@",[currencyFormatter stringFromNumber:self.product.price]];
+//        self.quantity.text = [numberFormatter stringFromNumber:[NSNumber numberWithInteger:self.product.quantity]];
         
     }
 }

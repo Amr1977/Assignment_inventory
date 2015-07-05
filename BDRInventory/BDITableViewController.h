@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BDIProduct.h"
+#import "BDIProductDetailsViewController.h"
+#import "BDInventory.h"
 
 @interface BDITableViewController : UITableViewController
 

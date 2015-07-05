@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,26 +20,17 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire Filter: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-Wk-nL0">
                                 <rect key="frame" x="39" y="115" width="101" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="M2R-QK-ae0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire Filter State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-b5-CcO">
-                                <rect key="frame" x="168" y="115" width="155" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="fAY-u3-Pxo"/>
+                                    <constraint firstAttribute="height" constant="37" id="dvV-Mw-WtB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eS-3t-2YD">
-                                <rect key="frame" x="39" y="153" width="176" height="33"/>
+                                <rect key="frame" x="39" y="259" width="176" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="176" id="URj-te-h1A"/>
-                                    <constraint firstAttribute="height" constant="33" id="Xdn-V4-FkP"/>
+                                    <constraint firstAttribute="height" constant="33" id="87Z-06-w8R"/>
+                                    <constraint firstAttribute="width" constant="176" id="ear-DL-IsR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Change Expire Filter">
@@ -51,9 +41,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYH-VG-f79" userLabel="Results">
-                                <rect key="frame" x="45" y="189" width="105" height="46"/>
+                                <rect key="frame" x="45" y="295" width="105" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="307-xP-pPJ"/>
+                                    <constraint firstAttribute="width" constant="105" id="cfB-wX-CS6"/>
+                                    <constraint firstAttribute="height" constant="46" id="efD-Qz-whT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Results">
@@ -63,19 +54,25 @@
                                     <segue destination="lxP-KL-oWP" kind="show" identifier="table" id="635-Ag-Rwl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire Filter State" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-b5-CcO">
+                                <rect key="frame" x="39" y="151" width="487" height="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3eS-3t-2YD" firstAttribute="leading" secondItem="lsv-Wk-nL0" secondAttribute="leading" id="DG6-dS-VTy"/>
-                            <constraint firstItem="fQ2-ss-glZ" firstAttribute="top" secondItem="uYH-VG-f79" secondAttribute="bottom" constant="365" id="Hk8-bI-Gde"/>
-                            <constraint firstItem="uYH-VG-f79" firstAttribute="leading" secondItem="jGQ-uG-NVm" secondAttribute="leadingMargin" constant="29" id="MbL-43-k5R"/>
-                            <constraint firstItem="0Db-b5-CcO" firstAttribute="baseline" secondItem="lsv-Wk-nL0" secondAttribute="baseline" id="We1-72-mwf"/>
-                            <constraint firstItem="lsv-Wk-nL0" firstAttribute="leading" secondItem="jGQ-uG-NVm" secondAttribute="leadingMargin" constant="23" id="eaB-DA-1Ff"/>
-                            <constraint firstItem="uYH-VG-f79" firstAttribute="top" secondItem="3eS-3t-2YD" secondAttribute="bottom" constant="3" id="iyI-vz-JcG"/>
-                            <constraint firstItem="3eS-3t-2YD" firstAttribute="top" secondItem="lsv-Wk-nL0" secondAttribute="bottom" constant="1" id="lz4-fB-nYq"/>
-                            <constraint firstItem="0Db-b5-CcO" firstAttribute="leading" secondItem="lsv-Wk-nL0" secondAttribute="trailing" constant="28" id="pmg-PD-D9Z"/>
-                            <constraint firstItem="0Db-b5-CcO" firstAttribute="firstBaseline" secondItem="lsv-Wk-nL0" secondAttribute="firstBaseline" id="v4y-2K-vZ5"/>
-                            <constraint firstItem="lsv-Wk-nL0" firstAttribute="top" secondItem="JvE-4a-1hv" secondAttribute="bottom" constant="95" id="y39-aL-XRq"/>
+                            <constraint firstItem="lsv-Wk-nL0" firstAttribute="top" secondItem="JvE-4a-1hv" secondAttribute="bottom" constant="95" id="3zD-TB-tZb"/>
+                            <constraint firstItem="3eS-3t-2YD" firstAttribute="top" secondItem="0Db-b5-CcO" secondAttribute="bottom" constant="8" symbolic="YES" id="B3k-fs-VZF"/>
+                            <constraint firstItem="uYH-VG-f79" firstAttribute="top" secondItem="3eS-3t-2YD" secondAttribute="bottom" constant="3" id="Q0B-m4-1UF"/>
+                            <constraint firstItem="lsv-Wk-nL0" firstAttribute="leading" secondItem="jGQ-uG-NVm" secondAttribute="leadingMargin" constant="23" id="QMt-gw-I7q"/>
+                            <constraint firstItem="uYH-VG-f79" firstAttribute="leading" secondItem="jGQ-uG-NVm" secondAttribute="leadingMargin" constant="29" id="U0q-2X-dIU"/>
+                            <constraint firstItem="0Db-b5-CcO" firstAttribute="leading" secondItem="3eS-3t-2YD" secondAttribute="leading" id="VLE-P2-sRe"/>
+                            <constraint firstItem="0Db-b5-CcO" firstAttribute="top" secondItem="JvE-4a-1hv" secondAttribute="bottom" constant="131" id="fFn-ru-4wz"/>
+                            <constraint firstItem="0Db-b5-CcO" firstAttribute="leading" secondItem="lsv-Wk-nL0" secondAttribute="leading" id="lTg-KY-7lT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Db-b5-CcO" secondAttribute="trailing" constant="58" id="ovr-xJ-H8F"/>
+                            <constraint firstItem="fQ2-ss-glZ" firstAttribute="top" secondItem="uYH-VG-f79" secondAttribute="bottom" constant="259" id="vtM-V0-in3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="BBT-hQ-t38"/>
@@ -116,7 +113,7 @@
                                     <action selector="expireFilterChangeAction:" destination="RLy-AL-o7M" eventType="valueChanged" id="3P6-BE-QQm"/>
                                 </connections>
                             </segmentedControl>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iMK-Nb-FeY">
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iMK-Nb-FeY">
                                 <rect key="frame" x="26" y="425" width="549" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="2WK-ai-Iwf"/>
@@ -191,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="productCell" selectionStyle="default" indentationWidth="10" textLabel="kFq-wI-f0c" detailTextLabel="63f-xS-gK7" style="IBUITableViewCellStyleValue1" id="WqA-FR-lod">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="productCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" textLabel="kFq-wI-f0c" detailTextLabel="63f-xS-gK7" style="IBUITableViewCellStyleValue1" id="WqA-FR-lod">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WqA-FR-lod" id="SlW-cp-CvV">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -229,7 +226,7 @@
         <!--Product Details-->
         <scene sceneID="y9b-D4-C8u">
             <objects>
-                <viewController storyboardIdentifier="details" title="Product Details" id="9gV-0f-unm" customClass="BDIProductDetailsViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="details" storyboardIdentifier="details" title="Product Details" id="9gV-0f-unm" customClass="BDIProductDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aqC-GD-1NF"/>
                         <viewControllerLayoutGuide type="bottom" id="8H1-XU-gkb"/>
@@ -371,6 +368,7 @@
                     <connections>
                         <outlet property="category" destination="cCg-3s-z8d" id="DTB-aE-IeS"/>
                         <outlet property="expireDate" destination="cCg-3s-z8d" id="IIb-1N-l9g"/>
+                        <outlet property="exporterID" destination="cCg-3s-z8d" id="lSz-st-gkf"/>
                         <outlet property="exporterId" destination="cCg-3s-z8d" id="9so-8Y-1WV"/>
                         <outlet property="manufacturer" destination="cCg-3s-z8d" id="YP8-h6-M3U"/>
                         <outlet property="name" destination="cCg-3s-z8d" id="86u-Rr-zeM"/>

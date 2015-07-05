@@ -19,19 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITabBarController *rootTabBarController =(UITabBarController * )[
-                                                                [(AppDelegate*)
-                                                                 [
-                                                                  [UIApplication sharedApplication] delegate] window] rootViewController
-                                                                ];
     
-    NSUInteger selectedIndex=rootTabBarController.selectedIndex;
-    NSLog(@"selected index: %lu",(unsigned long)selectedIndex);
     
-    self.expireFilterState.text= @"Expired";
-    self.expireFilterMode=BDIProductExpired;
     
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +45,59 @@
         [(BDIExpireFilterViewController *)[segue destinationViewController] setStoredEndDate:self.endDate];
 
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // do something
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd/MMM/yyyy"];
+    
+    NSString * title= [[self navigationController] title];
+    
+    if ([title isEqualToString:@"Manufacturer"]){
+        [[BDInventory inventory] setGroupingMode:ManufacturersGrouping];
+        NSLog(@"Grouping by: Manufacturers.");
+    } else if ([title isEqualToString:@"Exporter"]){
+        [[BDInventory inventory] setGroupingMode:ExporterGrouping];
+        NSLog(@"Grouping by: Exporter.");
+    }else if ([title isEqualToString:@"Category"]){
+        [[BDInventory inventory] setGroupingMode:CategoryGrouping];
+        NSLog(@"Grouping by: Category.");
+    }else{
+        [[BDInventory inventory] setGroupingMode:NoGroup];
+        NSLog(@"No Grouping filter.");
+    }
+    
+    UITabBarController *rootTabBarController =(UITabBarController * )[
+                                                                      [(AppDelegate*)
+                                                                       [
+                                                                        [UIApplication sharedApplication] delegate] window] rootViewController
+                                                                      ];
+    
+    NSUInteger selectedIndex=rootTabBarController.selectedIndex;
+    NSLog(@"selected index: %lu",(unsigned long)selectedIndex);
+    
+    switch ([[BDInventory inventory] expireFilterMode]) {
+        case BDIProductExpired:
+            self.expireFilterState.text= @"Expired";
+            break;
+            
+        case BDIProductNonExpired:
+            self.expireFilterState.text= @"Not Expired";
+            break;
+        case BDIProductInRange:
+            self.expireFilterState.text= [NSString stringWithFormat:@"In Range:\n[%@] : [%@]",
+                                          [format stringFromDate: [[BDInventory inventory] startDate]] ,
+                                          [format stringFromDate: [[BDInventory inventory] endDate]]
+                                          ];
+            break;
+            
+    }
+    
+    
+    
+    self.expireFilterMode=[[BDInventory inventory] expireFilterMode];
 }
 
 
