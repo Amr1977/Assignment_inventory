@@ -186,10 +186,12 @@
   for (NSString *groupingKey in groupingSet) {
     // create dictionary entry for each manufacturer with a value which is an
     // array of the products that are produced by this manufacturer
-    [result setValue:[self filterProducts:productsArray
-                                groupedBy:grouping
-                                withValue:groupingKey]
-              forKey:groupingKey];
+      NSArray * subProducts= [self filterProducts:productsArray
+                                     groupedBy:grouping
+                                     withValue:groupingKey];
+      if ([subProducts count]){
+        [result setValue:subProducts forKey:groupingKey];
+      }
   }
 
   return [result copy];
