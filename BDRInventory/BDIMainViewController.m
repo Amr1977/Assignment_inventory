@@ -64,7 +64,7 @@
     case BDIProductInRange:
       self.expireFilterState.text = [NSString
           stringWithFormat:
-              @"In Range:\n[%@] : [%@]",
+              @"[%@] : [%@]",
               [format stringFromDate:[[BDInventory inventory] startDate]],
               [format stringFromDate:[[BDInventory inventory] endDate]]];
       break;

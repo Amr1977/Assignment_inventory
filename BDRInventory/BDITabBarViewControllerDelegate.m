@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Amr Lotfy. All rights reserved.
 //
 
-#import "TabBarViewControllerDelegate.h"
+#import "BDITabBarViewControllerDelegate.h"
 
-@interface TabBarViewControllerDelegate ()
+@interface BDITabBarViewControllerDelegate ()
 
 @end
 
-@implementation TabBarViewControllerDelegate
+@implementation BDITabBarViewControllerDelegate
 
 - (void)viewDidLoad {
   [super viewDidLoad];
