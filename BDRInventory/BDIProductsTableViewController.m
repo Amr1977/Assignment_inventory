@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Amr Lotfy. All rights reserved.
 //
 
-#import "BDITableViewController.h"
+#import "BDIProductsTableViewController.h"
 
-@interface BDITableViewController ()
+@interface BDIProductsTableViewController ()
 
 @end
 
-@implementation BDITableViewController
+@implementation BDIProductsTableViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];

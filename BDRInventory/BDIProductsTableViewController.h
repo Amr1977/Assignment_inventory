@@ -11,6 +11,6 @@
 #import "BDIProductDetailsViewController.h"
 #import "BDInventory.h"
 
-@interface BDITableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface BDIProductsTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end
