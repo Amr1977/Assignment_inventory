@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "BDITabBarViewControllerDelegate.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +21,22 @@
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
   UITabBarController *tabBarController =
-      [[BDITabBarViewControllerDelegate alloc] init];
+      [[UITabBarController alloc] init];
+    UIStoryboard *mainStoryboard =
+    [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSMutableArray * vcs= [NSMutableArray new];
+    
+    for (NSString * title in @[@"Manufacturer",@"Exporter",@"Category",@"No Group"]) {
+        UINavigationController *navigationVC = [[UINavigationController alloc] init];
+        navigationVC.title = title;
+        UIViewController *mainVC = (UIViewController *)
+        [mainStoryboard instantiateViewControllerWithIdentifier:@"rootView"];
+        [navigationVC setViewControllers:@[ mainVC ]];
+        [vcs addObject:navigationVC];
+    }
+    
+    tabBarController.viewControllers = [vcs copy];
+    
   self.window.rootViewController = tabBarController;
   [self.window makeKeyAndVisible];
 

@@ -17,11 +17,23 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqual:@"asdsad"]) {
+        BDIExpireFilterViewController *viewController = segue.destinationViewController;
+        viewController.delegate = self;
+        //viewController.callBack = ^ {};
+//        viewController.startDate = //
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
