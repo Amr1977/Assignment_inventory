@@ -18,6 +18,7 @@
 		072201081B1F059400FCCB28 /* BDIProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 072201071B1F059400FCCB28 /* BDIProduct.m */; };
 		0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0722010A1B1F071500FCCB28 /* BDInventory.m */; };
 		073442CC1B4ACD6C00F60C6E /* BDIFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 073442CB1B4ACD6C00F60C6E /* BDIFilter.m */; };
+		073442CF1B4D4E7800F60C6E /* BDITabsCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 073442CE1B4D4E7800F60C6E /* BDITabsCreator.m */; };
 		0773E2ED1B42B80500357860 /* BDIProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */; };
 		0773E2F01B450CBF00357860 /* BDIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2EF1B450CBF00357860 /* BDIMainViewController.m */; };
 		0773E2F31B450CED00357860 /* BDIExpireFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0773E2F21B450CED00357860 /* BDIExpireFilterViewController.m */; };
@@ -55,6 +56,8 @@
 		0722010A1B1F071500FCCB28 /* BDInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDInventory.m; sourceTree = "<group>"; };
 		073442CA1B4ACD6C00F60C6E /* BDIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIFilter.h; sourceTree = "<group>"; };
 		073442CB1B4ACD6C00F60C6E /* BDIFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIFilter.m; sourceTree = "<group>"; };
+		073442CD1B4D4E7800F60C6E /* BDITabsCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDITabsCreator.h; sourceTree = "<group>"; };
+		073442CE1B4D4E7800F60C6E /* BDITabsCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDITabsCreator.m; sourceTree = "<group>"; };
 		0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIProductDetailsViewController.h; sourceTree = "<group>"; };
 		0773E2EC1B42B80500357860 /* BDIProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDIProductDetailsViewController.m; sourceTree = "<group>"; };
 		0773E2EE1B450CBF00357860 /* BDIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDIMainViewController.h; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				072201051B1F055100FCCB28 /* Model */,
 				072200E11B1F04D800FCCB28 /* AppDelegate.h */,
 				072200E21B1F04D800FCCB28 /* AppDelegate.m */,
+				073442CD1B4D4E7800F60C6E /* BDITabsCreator.h */,
+				073442CE1B4D4E7800F60C6E /* BDITabsCreator.m */,
 				07EDEF9D1B4167A100C43D74 /* BDIProductsTableViewController.h */,
 				07EDEF9E1B4167A100C43D74 /* BDIProductsTableViewController.m */,
 				0773E2EB1B42B80500357860 /* BDIProductDetailsViewController.h */,
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073442CF1B4D4E7800F60C6E /* BDITabsCreator.m in Sources */,
 				07EDEF9C1B414B8500C43D74 /* BDIGrouping.h in Sources */,
 				0773E2F01B450CBF00357860 /* BDIMainViewController.m in Sources */,
 				0722010B1B1F071500FCCB28 /* BDInventory.m in Sources */,

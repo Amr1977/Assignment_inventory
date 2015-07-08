@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BDITabsCreator.h"
 
 @interface AppDelegate : UIResponder<UIApplicationDelegate>
 

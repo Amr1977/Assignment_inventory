@@ -20,24 +20,10 @@
 
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
-  UITabBarController *tabBarController =
-      [[UITabBarController alloc] init];
-    UIStoryboard *mainStoryboard =
-    [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NSMutableArray * vcs= [NSMutableArray new];
+  BDITabsCreator * tabBarCreator= [BDITabsCreator new];
     
-    for (NSString * title in @[@"Manufacturer",@"Exporter",@"Category",@"No Group"]) {
-        UINavigationController *navigationVC = [[UINavigationController alloc] init];
-        navigationVC.title = title;
-        UIViewController *mainVC = (UIViewController *)
-        [mainStoryboard instantiateViewControllerWithIdentifier:@"rootView"];
-        [navigationVC setViewControllers:@[ mainVC ]];
-        [vcs addObject:navigationVC];
-    }
+  self.window.rootViewController = tabBarCreator.createTabs;
     
-    tabBarController.viewControllers = [vcs copy];
-    
-  self.window.rootViewController = tabBarController;
   [self.window makeKeyAndVisible];
 
   return YES;
