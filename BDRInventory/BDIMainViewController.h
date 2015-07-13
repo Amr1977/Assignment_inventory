@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "BDIGrouping.h"
-#import "BDIExpireFilterViewController.h"
 #import "BDInventory.h"
+#import "BDIExpireFilterViewController.h"
+#import "BDIProductFilter.h"
+#import "BDIProductsTableViewController.h"
 
-@interface BDIMainViewController : UIViewController
+@interface BDIMainViewController : UIViewController<BDExpireFilterProtocol>
 
+@property(nonatomic) NSDictionary* results;
+@property(nonatomic) BDIProductFilter*
+    productFilter;  // this filter instance is dedicated to this tab
 
 @end

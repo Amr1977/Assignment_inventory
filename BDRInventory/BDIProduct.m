@@ -9,6 +9,19 @@
 #import "BDIProduct.h"
 
 @implementation BDIProduct
+-(id) copyWithZone:(NSZone *)zone{
+    BDIProduct * newProduct=[[[self class] allocWithZone:zone] init];
+    if(newProduct){
+        newProduct.name=self.name;
+        newProduct.manufacturer=self.manufacturer;
+        newProduct.category=self.category;
+        newProduct.expireDate=self.expireDate;
+        newProduct.exporterID=self.exporterID;
+        newProduct.price=self.price;
+        newProduct.quantity=self.quantity;
+    }
+    return newProduct;
+}
 
 - (NSString *)description {
   NSDateFormatter *format = [[NSDateFormatter alloc] init];
@@ -99,5 +112,6 @@
 
   return (result != NSOrderedDescending);
 }
+
 
 @end

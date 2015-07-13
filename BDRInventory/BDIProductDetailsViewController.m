@@ -25,8 +25,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-  BDIProduct *product = [[BDInventory inventory] product];
-  if (product) {
+  if (self.product) {
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd/MMM/yyyy"];
 
@@ -40,34 +39,20 @@
                                  objectForKey:NSLocaleGroupingSeparator]];
     [numberFormatter setUsesGroupingSeparator:YES];
     NSLog(@"view did load (1)");
-    self.name.text = product.name;
-    self.manufacturer.text = product.manufacturer;
-    self.category.text = product.category;
-    self.exporterId.text = product.exporterID;
-    self.expireDate.text = [format stringFromDate:product.expireDate];
+    self.name.text = self.product.name;
+    self.manufacturer.text = self.product.manufacturer;
+    self.category.text = self.product.category;
+    self.exporterId.text = self.product.exporterID;
+    self.expireDate.text = [format stringFromDate:self.product.expireDate];
     self.price.text = [NSString
-        stringWithFormat:@"%@",
-                         [currencyFormatter stringFromNumber:product.price]];
+        stringWithFormat:@"%@", [currencyFormatter
+                                    stringFromNumber:self.product.price]];
     self.quantity.text = [numberFormatter
-        stringFromNumber:[NSNumber numberWithInteger:product.quantity]];
+        stringFromNumber:[NSNumber numberWithInteger:self.product.quantity]];
+  } else {
+    NSLog(@">>>>>>>>>>>>>>>>>>>>details controller: product not set "
+          @"<<<<<<<<<<<<<<<<<<<<<<<");
   }
 }
-/*
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little
-preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

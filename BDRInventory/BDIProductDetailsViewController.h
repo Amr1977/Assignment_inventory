@@ -11,5 +11,5 @@
 #import "BDInventory.h"
 
 @interface BDIProductDetailsViewController : UIViewController
-
+@property(nonatomic,copy) BDIProduct* product;
 @end

@@ -11,6 +11,8 @@
 #import "BDIProductDetailsViewController.h"
 #import "BDInventory.h"
 
-@interface BDIProductsTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
-
+@interface BDIProductsTableViewController
+    : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@property(nonatomic) NSDictionary* results;
+@property(nonatomic,copy) BDIProduct* product;
 @end

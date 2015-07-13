@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "BDIGrouping.h"
+#import "BDIProductFilter.h"
 
-@interface BDIProduct : NSObject
+@interface BDIProduct : NSObject <NSCopying>
 
 @property(nonatomic) NSString *name;
 @property(nonatomic) NSString *manufacturer;

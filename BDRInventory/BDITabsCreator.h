@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "BDIGrouping.h"
+#import "BDIMainViewController.h"
 
 @interface BDITabsCreator : NSObject
 
--(UITabBarController *) createTabs;
+- (UITabBarController *)createTabs;
 
 @end

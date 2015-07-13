@@ -20,10 +20,10 @@
 
   self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
-  BDITabsCreator * tabBarCreator= [BDITabsCreator new];
-    
+  BDITabsCreator *tabBarCreator = [BDITabsCreator new];
+
   self.window.rootViewController = tabBarCreator.createTabs;
-    
+
   [self.window makeKeyAndVisible];
 
   return YES;

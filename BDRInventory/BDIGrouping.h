@@ -10,10 +10,10 @@
 @interface BDIGrouping : NSObject
 
 typedef enum {
-  ManufacturersGrouping,
-  CategoryGrouping,
-  ExporterGrouping,
-  NoGroup
+  BDIManufacturersGrouping,
+  BDICategoryGrouping,
+  BDIExporterGrouping,
+  BDINoGroup
 } BDInventoryGropingMode;
 
 typedef enum {

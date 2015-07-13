@@ -7,23 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BDIMainViewController.h"
 #import "BDInventory.h"
 
 @class BDIExpireFilterViewController;
 
-@protocol BDExpireFilterViewControllerDelegate <NSObject>
+@protocol BDExpireFilterProtocol<NSObject>
+- (void)expireFilterViewController:
+            (BDIExpireFilterViewController *)viewController
+               didChooseFilterType:(BDIExpireFilterMode)expireFilterMode
+                         startDate:(NSDate *)startDate
+                           endDate:(NSDate *)endDate;
 
-- (void)expireFilterViewController:(BDIExpireFilterViewController *)viewController didChooseDate:(NSDate *)date;
-- (void)expireFilterViewControllerDidCancel:(BDIExpireFilterViewController *)viewController;
+- (void)expireFilterViewControllerDidCancel:
+    (BDIExpireFilterViewController *)viewController;
 
 @end
 
 @interface BDIExpireFilterViewController : UIViewController
-//@property (nonatomic) BDIExpireFilterMode storedFilterMode;
-//@property (nonatomic) NSDate * storedStartDate;
-//@property (nonatomic) NSDate * storedEndDate;
 
-@property (weak, nonatomic) id<BDExpireFilterViewControllerDelegate> delegate;
+@property(weak, nonatomic) id<BDExpireFilterProtocol> delegate;
+@property(nonatomic) BDIProductFilter *productFilter;
 
 @end

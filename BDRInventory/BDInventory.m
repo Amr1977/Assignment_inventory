@@ -120,21 +120,22 @@
       predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         BOOL result = true;
         switch (group) {
-          case ManufacturersGrouping:  // manufacturer //TODO: better to define
-                                       // constants or enums
+          case BDIManufacturersGrouping:  // manufacturer //TODO: better to
+                                          // define
+                                          // constants or enums
             return
                 [[[(BDIProduct *)evaluatedObject manufacturer] lowercaseString]
                     isEqualToString:[value lowercaseString]];
 
-          case CategoryGrouping:  // category
+          case BDICategoryGrouping:  // category
             return [[[(BDIProduct *)evaluatedObject category] lowercaseString]
                 isEqualToString:[value lowercaseString]];
 
-          case ExporterGrouping:
+          case BDIExporterGrouping:
             return [[[(BDIProduct *)evaluatedObject exporterID] lowercaseString]
                 isEqualToString:[value lowercaseString]];
 
-          case NoGroup:  // no_group
+          case BDINoGroup:  // no_group
             return true;
 
           default:
@@ -166,19 +167,19 @@
   result = [NSMutableDictionary new];
   NSMutableSet *groupingSet;
   switch (grouping) {
-    case ManufacturersGrouping:  // manufacturer
+    case BDIManufacturersGrouping:  // manufacturer
       groupingSet = self.manufacturers;
       break;
 
-    case CategoryGrouping:  // category
+    case BDICategoryGrouping:  // category
       groupingSet = self.categories;
       break;
 
-    case ExporterGrouping:  // exporter
+    case BDIExporterGrouping:  // exporter
       groupingSet = self.exporters;
       break;
 
-    case NoGroup:  // no group
+    case BDINoGroup:  // no group
       groupingSet = nil;
       [result setValue:productsArray forKey:@"No Group"];
   }
@@ -186,12 +187,12 @@
   for (NSString *groupingKey in groupingSet) {
     // create dictionary entry for each manufacturer with a value which is an
     // array of the products that are produced by this manufacturer
-      NSArray * subProducts= [self filterProducts:productsArray
-                                     groupedBy:grouping
-                                     withValue:groupingKey];
-      if ([subProducts count]){
-        [result setValue:subProducts forKey:groupingKey];
-      }
+    NSArray *subProducts = [self filterProducts:productsArray
+                                      groupedBy:grouping
+                                      withValue:groupingKey];
+    if ([subProducts count]) {
+      [result setValue:subProducts forKey:groupingKey];
+    }
   }
 
   return [result copy];
@@ -258,9 +259,9 @@
   }
   NSLog(@"products grouped by manufacturer %@",
         [self filterProducts:[self products]
-            byGroupingMethod:ManufacturersGrouping]);
+            byGroupingMethod:BDIManufacturersGrouping]);
   NSLog(@"non-expired products grouped by manufacturer %@",
-        [self getProductsByGrouping:ManufacturersGrouping
+        [self getProductsByGrouping:BDIManufacturersGrouping
                        expireFilter:BDIProductNonExpired
                           startDate:nil
                             endDate:nil]);
